@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="DelCom icon">
+  <defs>
+    <linearGradient id="dGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3eb8f0"/>
+      <stop offset="100%" stop-color="#143a8a"/>
+    </linearGradient>
+    <linearGradient id="oGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff9a4c"/>
+      <stop offset="100%" stop-color="#f37021"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(8,6)">
+    <path d="M10 6 H56 a30 30 0 0 1 30 30 v12 a30 30 0 0 1 -30 30 H10 Z"
+          fill="none" stroke="url(#dGrad)" stroke-width="7" stroke-linejoin="round"/>
+    <circle cx="36" cy="36" r="5" fill="none" stroke="#2da9e8" stroke-width="3"/>
+    <circle cx="36" cy="60" r="4" fill="#f37021"/>
+    <path d="M36 60 L82 8" stroke="url(#oGrad)" stroke-width="9" stroke-linecap="round"/>
+    <path d="M82 8 l-14 3 l9 9 z" fill="#f37021"/>
+  </g>
+</svg>

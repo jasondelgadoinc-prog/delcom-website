@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 90" role="img" aria-label="DelCom">
+  <defs>
+    <linearGradient id="dGrad2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3eb8f0"/>
+      <stop offset="100%" stop-color="#143a8a"/>
+    </linearGradient>
+    <linearGradient id="oGrad2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff9a4c"/>
+      <stop offset="100%" stop-color="#f37021"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(6,10)">
+    <path d="M14 6 H50 a30 30 0 0 1 30 30 v6 a30 30 0 0 1 -30 30 H14 Z"
+          fill="none" stroke="url(#dGrad2)" stroke-width="6" stroke-linejoin="round"/>
+    <circle cx="34" cy="30" r="3.5" fill="none" stroke="#2da9e8" stroke-width="2.5"/>
+    <circle cx="50" cy="54" r="3.5" fill="#f37021"/>
+    <path d="M30 60 L72 12" stroke="url(#oGrad2)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M72 12 l-12 2 l8 8 z" fill="#f37021"/>
+  </g>
+  <g font-family="Plus Jakarta Sans, system-ui, sans-serif" font-weight="800" font-size="48" letter-spacing="-1.5">
+    <text x="106" y="64" fill="#143a8a">Del</text>
+    <text x="186" y="64" fill="#2da9e8">C</text>
+    <text x="224" y="64" fill="#f37021">om</text>
+  </g>
+</svg>

@@ -1,409 +1,318 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DelCom - AI-Powered Business Solutions</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #ffffff;
-        }
-
-        /* Navigation */
-        nav {
-            background: #ffffff;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #0066cc;
-        }
-
-        .logo img {
-            height: 40px;
-            width: auto;
-        }
-
-        nav a {
-            color: #333;
-            text-decoration: none;
-            margin-left: 2rem;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #ff6b35;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #0066cc 0%, #003d99 50%, #ff6b35 100%);
-            color: white;
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-
-        .hero .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #ff6b35;
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .cta-button:hover {
-            background: #e55a2b;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 4rem 2rem;
-            background: #f9f9f9;
-        }
-
-        .services h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #0066cc;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
-        }
-
-        .service-card h3 {
-            color: #0066cc;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .service-card p {
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* About Section */
-        .about {
-            padding: 4rem 2rem;
-            background: white;
-        }
-
-        .about .container {
-            max-width: 900px;
-        }
-
-        .about h2 {
-            font-size: 2.5rem;
-            color: #0066cc;
-            margin-bottom: 2rem;
-        }
-
-        .about p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 4rem 2rem;
-            background: #f9f9f9;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: 2.5rem;
-            color: #0066cc;
-            margin-bottom: 2rem;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #0066cc;
-            box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: #003d99;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        footer p {
-            margin: 0.5rem 0;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            nav a {
-                margin-left: 1rem;
-                font-size: 0.9rem;
-            }
-
-            .services h2,
-            .about h2,
-            .contact h2 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DelCom — Tech for the way you actually do business</title>
+  <meta name="description" content="DelCom helps you start, support, promote, and learn the tech that runs your business. Friendly experts, real answers, no jargon." />
+  <meta name="theme-color" content="#143a8a" />
+  <link rel="icon" href="assets/logo-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/logo-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="logo">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- D shape -->
-                    <path d="M8 8H18C22 8 25 11 25 15V25C25 29 22 32 18 32H8V8Z" fill="#0066cc" stroke="#0066cc" stroke-width="1"/>
-                    <!-- Arrow -->
-                    <path d="M20 12L32 28M32 28L28 25M32 28L35 32" stroke="#ff6b35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                    <!-- Circuit nodes -->
-                    <circle cx="14" cy="15" r="1.5" fill="#ff6b35"/>
-                    <circle cx="14" cy="25" r="1.5" fill="#ff6b35"/>
-                    <circle cx="20" cy="20" r="1.5" fill="#ff6b35"/>
-                </svg>
-                <span>DelCom</span>
-            </div>
-            <div style="display: flex; gap: 2rem;">
-                <a href="#services">Services</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="DelCom home">
+        <img src="assets/logo-full.png" alt="DelCom" class="brand-logo" onerror="this.onerror=null;this.src='assets/logo-full.svg'" />
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#services">What we do</a>
+        <a href="#approach">How we help</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn btn-ghost">Talk to us</a>
+      </nav>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="#services">What we do</a>
+      <a href="#approach">How we help</a>
+      <a href="#about">About</a>
+      <a href="#contact">Talk to us</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
     <section class="hero">
-        <div class="container">
-            <h1>AI-Powered Business Solutions</h1>
-            <p>Enhance productivity and optimize investments with cutting-edge artificial intelligence</p>
-            <a href="#contact" class="cta-button">Get Started Today</a>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Tech services &amp; apps for real businesses</span>
+          <h1>
+            Big tech energy.<br />
+            <span class="accent">Small-business friendly.</span>
+          </h1>
+          <p class="lede">
+            DelCom helps you launch, run, grow, and actually <em>understand</em> the tech behind your business — without the corporate runaround or the jargon headache.
+          </p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-primary">Let's talk →</a>
+            <a href="#services" class="btn btn-link">See what we do</a>
+          </div>
+          <ul class="hero-checks" aria-label="What we cover">
+            <li>Startup</li>
+            <li>Support</li>
+            <li>Promotion</li>
+            <li>Education</li>
+          </ul>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="icon">🤖</div>
-                    <h3>AI Automation</h3>
-                    <p>Streamline your business operations with intelligent automation solutions that reduce manual work and increase efficiency.</p>
-                </div>
-                <div class="service-card">
-                    <div class="icon">📊</div>
-                    <h3>Business Analytics</h3>
-                    <p>Gain actionable insights from your data with advanced AI analytics and reporting tools built for modern businesses.</p>
-                </div>
-                <div class="service-card">
-                    <div class="icon">💰</div>
-                    <h3>Investment Optimization</h3>
-                    <p>Make smarter investment decisions with AI-driven analysis and predictive modeling powered by machine learning.</p>
-                </div>
-                <div class="service-card">
-                    <div class="icon">💻</div>
-                    <h3>Custom App Development</h3>
-                    <p>From concept to deployment, we build tailored applications that solve your unique business challenges.</p>
-                </div>
-                <div class="service-card">
-                    <div class="icon">🔐</div>
-                    <h3>Secure Integration</h3>
-                    <p>Seamlessly integrate AI solutions with your existing systems while maintaining security and compliance standards.</p>
-                </div>
-                <div class="service-card">
-                    <div class="icon">📱</div>
-                    <h3>Digital Transformation</h3>
-                    <p>Transform your business with modern technology and AI-driven strategies for sustainable growth.</p>
-                </div>
+        <div class="hero-art">
+          <div class="hero-art-stage" aria-hidden="true">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <img src="assets/logo-icon.png" alt="" class="hero-icon" onerror="this.onerror=null;this.src='assets/logo-icon.svg'" />
+            <div class="card-float card-1">
+              <div class="dot dot-blue"></div>
+              <div class="bars"><span></span><span></span><span></span></div>
             </div>
+            <div class="card-float card-2">
+              <div class="dot dot-orange"></div>
+              <div class="lines"><span></span><span></span></div>
+            </div>
+            <div class="card-float card-3">
+              <span class="chip">↗ Growing</span>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About DelCom</h2>
-            <p>DelCom is an AI-powered consulting and technology services company dedicated to helping businesses and investors leverage artificial intelligence to enhance productivity and make smarter decisions.</p>
-            <p>We specialize in creating intelligent solutions that automate workflows, generate data-driven insights, and deliver measurable results. Whether you're looking to streamline operations, optimize investments, or build custom technology, DelCom has the expertise to get you there.</p>
-            <p>Our mission is to democratize access to advanced AI technology, making it accessible and practical for businesses of all sizes.</p>
+    <!-- THREE QUESTIONS -->
+    <section class="questions">
+      <div class="container">
+        <h2 class="section-title">Sound familiar?</h2>
+        <div class="q-grid">
+          <article class="q-card">
+            <div class="q-num">01</div>
+            <h3>"I want to start a business — but I don't know what tech I actually need."</h3>
+            <p>Domain? Website? Email? Payments? Bookkeeping? We'll map it out so you spend on what matters, skip what doesn't, and launch ready.</p>
+            <a href="#contact" class="q-link">Start smart →</a>
+          </article>
+
+          <article class="q-card">
+            <div class="q-num">02</div>
+            <h3>"I have a business — and it's overdue for a tech upgrade."</h3>
+            <p>Old site, scattered tools, manual everything? We modernize the stack so your business runs faster, looks sharper, and stops leaking time.</p>
+            <a href="#contact" class="q-link">Upgrade it →</a>
+          </article>
+
+          <article class="q-card">
+            <div class="q-num">03</div>
+            <h3>"I bought the tech — now I have no idea how to use it."</h3>
+            <p>You're not the problem; the onboarding was. We'll train you and your team in plain English until the tools feel obvious.</p>
+            <a href="#contact" class="q-link">Get unstuck →</a>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <form class="contact-form" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="cta-button" style="width: 100%; padding: 1rem;">Send Message</button>
-            </form>
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <div class="container">
+        <span class="eyebrow center">What we do</span>
+        <h2 class="section-title center">Four ways we plug in.</h2>
+        <p class="section-sub center">Pick one. Pick all four. Mix-and-match as your business grows.</p>
+
+        <div class="svc-grid">
+          <article class="svc-card svc-startup">
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14l1.5-4.5L10 8l-4.5-1.5L4 2l-1.5 4.5L-2 8l4.5 1.5z" transform="translate(6 2)"/><path d="M14 14l2 6 2-6 6-2-6-2-2-6-2 6-6 2z"/></svg>
+            </div>
+            <h3>Startup</h3>
+            <p>From "I have an idea" to "we're open for business." Domains, hosting, email, sites, storefronts, the works.</p>
+            <ul>
+              <li>Business setup &amp; tech checklist</li>
+              <li>Website &amp; brand essentials</li>
+              <li>Email, payments &amp; tools wired up</li>
+            </ul>
+          </article>
+
+          <article class="svc-card svc-support">
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </div>
+            <h3>Support</h3>
+            <p>Stuff breaks. People panic. We don't. Friendly, on-call help for the day-to-day tech your business depends on.</p>
+            <ul>
+              <li>Ongoing tech support &amp; maintenance</li>
+              <li>Hosting, security &amp; backups</li>
+              <li>"It just stopped working" rescues</li>
+            </ul>
+          </article>
+
+          <article class="svc-card svc-promo">
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-4 18-4-7-7-3z"/><path d="M10 14l-4 4"/></svg>
+            </div>
+            <h3>Promotion</h3>
+            <p>Get found. Get clicked. Get hired. We put your business where your customers already are — and make it look good doing it.</p>
+            <ul>
+              <li>SEO &amp; local search visibility</li>
+              <li>Social media presence &amp; ads</li>
+              <li>Content, branding &amp; campaigns</li>
+            </ul>
+          </article>
+
+          <article class="svc-card svc-edu">
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg>
+            </div>
+            <h3>Education</h3>
+            <p>You don't need to outsource forever. We teach you and your team how to actually run the tech yourselves — in plain English.</p>
+            <ul>
+              <li>1-on-1 &amp; team training sessions</li>
+              <li>Custom how-to guides for your stack</li>
+              <li>Workshops for owners &amp; staff</li>
+            </ul>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 DelCom. All rights reserved.</p>
-        <p>AI-Powered Business Solutions for the Modern Era</p>
-        <p>📧 contact@delcom.live | 🌐 delcom.live</p>
-    </footer>
+    <!-- APPROACH -->
+    <section class="approach" id="approach">
+      <div class="container approach-grid">
+        <div>
+          <span class="eyebrow">How we help</span>
+          <h2 class="section-title">No jargon. No upsell games. Just real answers.</h2>
+          <p class="lede">
+            We sit on your side of the table. That means we'll tell you when you <strong>don't</strong> need the fancy plan, when the free tool is fine, and when it's time to actually invest. The goal isn't to lock you in — it's to leave you confident.
+          </p>
+        </div>
+        <ol class="steps">
+          <li>
+            <span class="step-num">1</span>
+            <div>
+              <h4>Free, no-pressure chat</h4>
+              <p>Tell us where you're at. We'll tell you straight whether we can help — and what it'd take.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <div>
+              <h4>A plan that fits</h4>
+              <p>Right-sized to your business and your budget. No 40-page proposals.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <div>
+              <h4>We build, you launch</h4>
+              <p>We handle the tech heavy lifting. You stay in the loop — never in the dark.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <div>
+              <h4>We stick around</h4>
+              <p>Support, training, tune-ups. Call, text, email — we pick up.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
 
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // You can integrate this with EmailJS or a backend service
-            alert(`Thank you, ${name}! We've received your message and will get back to you soon.`);
-            event.target.reset();
-        }
-    </script>
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-art" aria-hidden="true">
+          <div class="about-card">
+            <div class="about-stat"><strong>100%</strong><span>Human-sized service</span></div>
+            <div class="about-stat"><strong>0</strong><span>Buzzwords per meeting</span></div>
+            <div class="about-stat"><strong>1:1</strong><span>You always know who you're working with</span></div>
+          </div>
+        </div>
+        <div>
+          <span class="eyebrow">About DelCom</span>
+          <h2 class="section-title">We're the tech team your business actually wanted.</h2>
+          <p>
+            DelCom is a small team of builders, fixers, and teachers who like making technology feel less intimidating. We work with founders, owner-operators, family businesses, and lean teams who want a real partner — not a vendor.
+          </p>
+          <p>
+            If you've ever felt like the tech world is talking past you, we built DelCom for you.
+          </p>
+          <a href="#contact" class="btn btn-primary">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="container contact-inner">
+        <div class="contact-copy">
+          <span class="eyebrow light">Let's talk</span>
+          <h2>Tell us what you're working on.</h2>
+          <p>Send a quick note. We'll get back the same business day — usually faster.</p>
+          <ul class="contact-meta">
+            <li><strong>Email</strong> <a href="mailto:info@delcom.live">info@delcom.live</a></li>
+            <li><strong>Web</strong> delcomonline.com</li>
+            <li><strong>Hours</strong> Mon–Fri, real people answering</li>
+          </ul>
+        </div>
+        <form class="contact-form"
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              action="/?submitted=true">
+          <input type="hidden" name="form-name" value="contact" />
+          <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+          <label>
+            <span>Your name</span>
+            <input type="text" name="name" required autocomplete="name" />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required autocomplete="email" />
+          </label>
+          <label>
+            <span>What do you need help with?</span>
+            <select name="topic" required>
+              <option value="">Pick one…</option>
+              <option>Starting a business</option>
+              <option>Upgrading my existing tech</option>
+              <option>Learning how to use what I have</option>
+              <option>Promotion / getting found online</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label>
+            <span>Tell us a bit more</span>
+            <textarea name="message" rows="4" placeholder="The short version is fine."></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary btn-block">Send it →</button>
+          <p class="form-msg" id="form-msg" hidden>Thanks — we got it. We'll be in touch shortly.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#top" aria-label="DelCom home">
+        <img src="assets/logo-full.png" alt="DelCom" class="brand-logo brand-logo-sm footer-logo" onerror="this.onerror=null;this.src='assets/logo-full.svg'" />
+      </a>
+      <p class="footer-tag">Tech services &amp; applications for business — startup, support, promotion, education.</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#services">What we do</a>
+        <a href="#approach">How we help</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer-fine">© <span id="year"></span> DelCom. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
