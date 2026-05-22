@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DelCom — Big Tech Energy for Every Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #1457C8;
+  --blue-deep: #0A3A8F;
+  --blue-bright: #2E7BE6;
+  --blue-soft: #E8F0FE;
+  --orange: #F26F1F;
+  --orange-bright: #FF8533;
+  --orange-soft: #FFF1E6;
+  --ink: #0B1220;
+  --ink-soft: #364056;
+  --paper: #FAFAF7;
+  --paper-warm: #F4F1EA;
+  --line: #E4E1D9;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Sora', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+/* ============ NAV ============ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 32px;
+  background: rgba(250, 250, 247, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+nav.scrolled { border-bottom-color: var(--line); }
+
+.nav-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+
+.logo {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: -0.04em;
+  display: flex; align-items: center;
+}
+.logo .del { color: var(--blue); }
+.logo .com { color: var(--orange); }
+.logo .dot {
+  width: 6px; height: 6px;
+  background: var(--orange);
+  border-radius: 50%;
+  margin-left: 4px;
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--orange);
+  transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--blue); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  background: var(--ink);
+  color: var(--paper) !important;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-weight: 500;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: var(--blue) !important; transform: translateY(-1px); }
+
+/* ============ HERO ============ */
+.hero {
+  padding: 180px 32px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: -10%; right: -20%;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(242, 111, 31, 0.15) 0%, transparent 60%);
+  border-radius: 50%;
+  animation: floatA 20s ease-in-out infinite;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -20%; left: -10%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(20, 87, 200, 0.18) 0%, transparent 60%);
+  border-radius: 50%;
+  animation: floatB 24s ease-in-out infinite;
+}
+@keyframes floatA {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-40px, 40px) scale(1.1); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.15); }
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(11, 18, 32, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 18, 32, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin-bottom: 32px;
+  animation: fadeUp 0.8s ease-out;
+}
+.hero-eyebrow .dot-orange {
+  width: 8px; height: 8px;
+  background: var(--orange);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(242, 111, 31, 0.2);
+}
+
+h1.hero-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 32px;
+  animation: fadeUp 0.8s ease-out 0.1s both;
+  font-variation-settings: "SOFT" 50;
+}
+h1.hero-title .accent-blue {
+  color: var(--blue);
+  font-style: italic;
+  font-weight: 300;
+}
+h1.hero-title .accent-orange {
+  color: var(--orange);
+  font-style: italic;
+  font-weight: 300;
+}
+h1.hero-title .underline {
+  position: relative;
+  display: inline-block;
+}
+h1.hero-title .underline::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 6px;
+  height: 14px;
+  background: var(--orange);
+  opacity: 0.25;
+  z-index: -1;
+  transform: skew(-4deg);
+}
+
+.hero-sub {
+  font-size: clamp(17px, 1.4vw, 21px);
+  max-width: 620px;
+  color: var(--ink-soft);
+  margin-bottom: 48px;
+  animation: fadeUp 0.8s ease-out 0.2s both;
+}
+
+.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.8s ease-out 0.3s both; }
+
+.btn {
+  padding: 16px 28px;
+  border-radius: 100px;
+  font-family: 'Sora', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn-primary:hover {
+  background: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(20, 87, 200, 0.35);
+}
+.btn-primary .arrow { transition: transform 0.3s; }
+.btn-primary:hover .arrow { transform: translateX(4px); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+}
+.btn-secondary:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.hero-meta {
+  margin-top: 80px;
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.8s ease-out 0.4s both;
+}
+.hero-meta-item .num {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: var(--ink);
+  display: block;
+  line-height: 1;
+}
+.hero-meta-item .num .accent { color: var(--orange); }
+.hero-meta-item .lbl {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  margin-top: 8px;
+  display: block;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ MARQUEE ============ */
+.marquee {
+  padding: 32px 0;
+  background: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  position: relative;
+}
+.marquee-track {
+  display: flex;
+  gap: 60px;
+  animation: scroll 30s linear infinite;
+  width: max-content;
+  align-items: center;
+}
+.marquee-item {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  display: flex; align-items: center; gap: 60px;
+  white-space: nowrap;
+}
+.marquee-item .dot {
+  width: 6px; height: 6px;
+  background: var(--orange);
+  border-radius: 50%;
+}
+.marquee-item .em { font-style: italic; color: var(--orange-bright); }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ============ SERVICES ============ */
+.services {
+  padding: 120px 32px;
+  position: relative;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 64px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.section-tag {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-tag::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--orange);
+}
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  max-width: 700px;
+}
+.section-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--blue);
+}
+.section-desc {
+  font-size: 17px;
+  color: var(--ink-soft);
+  max-width: 380px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px -20px rgba(11, 18, 32, 0.15);
+  border-color: transparent;
+}
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-card.large { grid-column: span 7; min-height: 380px; }
+.service-card.small { grid-column: span 5; min-height: 380px; }
+.service-card.third { grid-column: span 4; min-height: 320px; }
+
+.service-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 8px;
+}
+.service-num::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.service-icon {
+  width: 60px; height: 60px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px;
+  background: var(--blue-soft);
+}
+.service-card.featured .service-icon { background: var(--orange-soft); }
+.service-icon svg { width: 28px; height: 28px; }
+
+.service-title {
+  font-family: 'Fraunces', serif;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.service-card.large .service-title { font-size: 38px; }
+
+.service-desc {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.service-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.service-tag {
+  font-size: 12px;
+  padding: 6px 12px;
+  background: var(--paper-warm);
+  border-radius: 100px;
+  color: var(--ink-soft);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.service-card.featured {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+  color: white;
+  border: none;
+}
+.service-card.featured .service-title { color: white; }
+.service-card.featured .service-desc { color: rgba(255, 255, 255, 0.8); }
+.service-card.featured .service-num { color: rgba(255, 255, 255, 0.5); }
+.service-card.featured .service-num::after { background: rgba(255, 255, 255, 0.2); }
+.service-card.featured .service-tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.service-card.featured .service-bg-art {
+  position: absolute;
+  right: -40px; bottom: -40px;
+  opacity: 0.15;
+}
+
+/* ============ WHO WE SERVE ============ */
+.audience {
+  padding: 120px 32px;
+  background: var(--ink);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+.audience::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(242, 111, 31, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.audience .section-title { color: var(--paper); }
+.audience .section-title em { color: var(--orange-bright); }
+.audience .section-tag { color: var(--orange-bright); }
+.audience .section-tag::before { background: var(--orange-bright); }
+.audience .section-desc { color: rgba(250, 250, 247, 0.6); }
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.audience-card {
+  padding: 32px 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  transition: all 0.4s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.audience-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-4px);
+  border-color: var(--orange);
+}
+.audience-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--orange), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+.audience-card:hover::after { transform: translateX(0); }
+
+.audience-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: rgba(242, 111, 31, 0.15);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.audience-icon svg { width: 24px; height: 24px; color: var(--orange-bright); }
+.audience-title {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.audience-desc {
+  font-size: 13px;
+  color: rgba(250, 250, 247, 0.6);
+  line-height: 1.5;
+}
+
+/* ============ WORK ============ */
+.work {
+  padding: 120px 32px;
+  background: var(--paper-warm);
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.work-card {
+  background: white;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+.work-card::after {
+  content: '↗';
+  position: absolute;
+  top: 20px; right: 20px;
+  width: 40px; height: 40px;
+  background: white;
+  color: var(--ink);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(-6px) scale(0.85);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+.work-card:hover::after {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  background: var(--orange);
+  color: white;
+}
+.work-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px -20px rgba(11, 18, 32, 0.2);
+}
+
+.work-visual {
+  aspect-ratio: 4/3;
+  position: relative;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* App preview: Casino game */
+.preview-casino {
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255, 200, 100, 0.4), transparent 60%),
+    linear-gradient(135deg, #2A1810 0%, #6B2D1E 50%, #C9923E 100%);
+  position: relative;
+}
+.preview-casino .lamp {
+  position: absolute;
+  width: 30px; height: 50px;
+  background: linear-gradient(180deg, #FFB347 0%, #FF6B1F 100%);
+  border-radius: 50% 50% 30% 30%;
+  box-shadow: 0 0 30px rgba(255, 150, 50, 0.7);
+  top: 12%; left: 12%;
+  animation: lampGlow 3s ease-in-out infinite;
+}
+@keyframes lampGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+.preview-casino .slots {
+  display: flex; gap: 8px;
+  background: #1A1209;
+  padding: 14px;
+  border-radius: 10px;
+  border: 2px solid #C9923E;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+.preview-casino .slot {
+  width: 38px; height: 50px;
+  background: white;
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 16px;
+  color: #D44;
+}
+.preview-casino .badge {
+  position: absolute;
+  bottom: 16px; left: 16px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* App preview: Steps procedures */
+.preview-steps {
+  background: linear-gradient(135deg, #F5F3FF 0%, #EDE7FE 100%);
+  position: relative;
+  padding: 24px;
+}
+.preview-steps .panel {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+  width: 70%;
+}
+.preview-steps .panel-title {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  color: #6B4FBB;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.preview-steps .list-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 0;
+  font-size: 11px;
+  color: #333;
+  border-bottom: 1px solid #F0EDF8;
+}
+.preview-steps .list-item:last-child { border-bottom: none; }
+.preview-steps .check {
+  width: 14px; height: 14px;
+  border-radius: 4px;
+  background: #6B4FBB;
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  font-size: 9px;
+}
+.preview-steps .check.empty { background: white; border: 1.5px solid #C9C0E0; }
+.preview-steps .floating {
+  position: absolute;
+  bottom: 24px; right: 24px;
+  background: white;
+  padding: 10px 14px;
+  border-radius: 100px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  font-size: 11px;
+  font-weight: 500;
+  color: #6B4FBB;
+  display: flex; align-items: center; gap: 6px;
+}
+.preview-steps .floating .dot {
+  width: 8px; height: 8px;
+  background: #22C55E;
+  border-radius: 50%;
+}
+
+/* App preview: ClearDay dashboard */
+.preview-clearday {
+  background: linear-gradient(135deg, #F0F7FF 0%, #DCEAFE 100%);
+  padding: 24px;
+  position: relative;
+}
+.preview-clearday .header-row {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 14px;
+}
+.preview-clearday .logo-box {
+  width: 22px; height: 22px;
+  background: var(--blue);
+  border-radius: 6px;
+  position: relative;
+}
+.preview-clearday .logo-box::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; right: 2px;
+  width: 6px; height: 6px;
+  background: var(--orange);
+  border-radius: 2px;
+}
+.preview-clearday .brand {
+  font-weight: 700; font-size: 13px; color: var(--ink);
+}
+.preview-clearday .stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.preview-clearday .stat {
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+.preview-clearday .stat-label {
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.preview-clearday .stat-num {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: 'Fraunces', serif;
+}
+.preview-clearday .stat:nth-child(1) .stat-num { color: var(--blue); }
+.preview-clearday .stat:nth-child(2) .stat-num { color: var(--orange); }
+.preview-clearday .stat:nth-child(3) .stat-num { color: #22C55E; }
+.preview-clearday .cards {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.preview-clearday .mini-card {
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  border-top: 2px solid var(--blue);
+  font-size: 10px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+.preview-clearday .mini-card:nth-child(2) { border-color: var(--orange); }
+
+.work-meta {
+  padding: 28px;
+}
+.work-type {
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.work-title {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.work-desc {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+/* ============ PROCESS ============ */
+.process {
+  padding: 120px 32px;
+}
+
+.process-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 64px;
+  border-top: 1px solid var(--line);
+}
+
+.process-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 2fr 1fr;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+  gap: 32px;
+  transition: padding 0.4s;
+  cursor: default;
+  position: relative;
+}
+.process-row::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 100%;
+  background: var(--orange-soft);
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s;
+}
+.process-row:hover { padding-left: 24px; padding-right: 24px; }
+.process-row:hover::before { transform: scaleY(1); }
+
+.process-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--orange);
+  font-weight: 500;
+}
+.process-name {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.process-detail {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+.process-time {
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 500;
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ============ CTA ============ */
+.cta-section {
+  padding: 120px 32px;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 60%, #051E5C 100%);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 1000px; height: 1000px;
+  background: radial-gradient(circle, rgba(242, 111, 31, 0.2) 0%, transparent 60%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.cta-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+}
+.cta-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+
+.cta-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 100px;
+  font-size: 13px;
+  margin-bottom: 28px;
+  backdrop-filter: blur(10px);
+}
+.cta-eyebrow .dot {
+  width: 8px; height: 8px;
+  background: var(--orange);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(242, 111, 31, 0.3);
+}
+
+.cta-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+.cta-title em {
+  font-style: italic;
+  color: var(--orange-bright);
+}
+.cta-desc {
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 40px;
+  max-width: 540px;
+  margin-left: auto; margin-right: auto;
+}
+.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.cta-buttons .btn-primary { background: var(--orange); }
+.cta-buttons .btn-primary:hover { background: var(--orange-bright); box-shadow: 0 12px 30px rgba(242, 111, 31, 0.5); }
+.cta-buttons .btn-secondary { color: white; border-color: rgba(255,255,255,0.3); }
+.cta-buttons .btn-secondary:hover { background: white; color: var(--ink); }
+
+/* ============ FOOTER ============ */
+footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 80px 32px 40px;
+}
+.footer-inner { max-width: 1280px; margin: 0 auto; }
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-brand-block .logo { font-size: 32px; margin-bottom: 20px; }
+.footer-brand-block .logo .del { color: #6BA3FF; }
+.footer-tagline {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.3;
+  max-width: 320px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 24px;
+}
+.footer-col h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--orange-bright);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.footer-col a {
+  display: block;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 0;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: white; }
+.footer-bottom {
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+.footer-bottom .legal a { color: rgba(255,255,255,0.5); text-decoration: none; margin-left: 24px; }
+.footer-bottom .legal a:hover { color: white; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .services-grid > * { grid-column: span 12 !important; }
+  .audience-grid { grid-template-columns: repeat(2, 1fr); }
+  .work-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .process-row { grid-template-columns: 50px 1fr; }
+  .process-detail, .process-time { grid-column: 2; }
+  .process-time { text-align: left; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-links .nav-cta { display: inline-flex; }
+  .nav-links { display: flex; gap: 0; }
+  .nav-links a:not(.nav-cta) { display: none; }
+  .hero { padding-top: 130px; }
+  .hero-meta { gap: 32px; }
+  .hero-meta-item .num { font-size: 36px; }
+  .section-header { flex-direction: column; align-items: flex-start; }
+  .audience-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; padding-bottom: 32px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .footer-bottom .legal a { margin-left: 0; margin-right: 16px; }
+  .container { padding: 0 20px; }
+  .services, .work, .process, .audience, .cta-section { padding: 80px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="del">Del</span><span class="com">Com</span><span class="dot"></span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#contact" class="nav-cta">Start a Project</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="dot-orange"></span>
+      <span>Now accepting Q3 2026 projects</span>
+    </div>
+    <h1 class="hero-title">
+      Big tech <span class="accent-orange">energy.</span><br>
+      Small business <span class="underline">heart</span>.<br>
+      <span class="accent-blue">Software that works.</span>
+    </h1>
+    <p class="hero-sub">
+      DelCom builds custom applications, websites, and business solutions for enterprises, startups, schools, and entertainment brands — pairing enterprise-grade engineering with the agility of a partner who actually picks up the phone.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary">
+        Start your project
+        <span class="arrow">→</span>
+      </a>
+      <a href="#work" class="btn btn-secondary">See our work</a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="num">20<span class="accent">+</span></span>
+        <span class="lbl">Apps shipped</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="num">5<span class="accent">×</span></span>
+        <span class="lbl">Industries served</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="num">100<span class="accent">%</span></span>
+        <span class="lbl">Custom-built</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item">Enterprise <span class="em">solutions</span><span class="dot"></span></span>
+    <span class="marquee-item">Entertainment <span class="em">platforms</span><span class="dot"></span></span>
+    <span class="marquee-item">Education <span class="em">tech</span><span class="dot"></span></span>
+    <span class="marquee-item">Custom <span class="em">software</span><span class="dot"></span></span>
+    <span class="marquee-item">Small business <span class="em">strategy</span><span class="dot"></span></span>
+    <span class="marquee-item">Mobile <span class="em">apps</span><span class="dot"></span></span>
+    <span class="marquee-item">Web <span class="em">platforms</span><span class="dot"></span></span>
+    <!-- duplicate for seamless scroll -->
+    <span class="marquee-item">Enterprise <span class="em">solutions</span><span class="dot"></span></span>
+    <span class="marquee-item">Entertainment <span class="em">platforms</span><span class="dot"></span></span>
+    <span class="marquee-item">Education <span class="em">tech</span><span class="dot"></span></span>
+    <span class="marquee-item">Custom <span class="em">software</span><span class="dot"></span></span>
+    <span class="marquee-item">Small business <span class="em">strategy</span><span class="dot"></span></span>
+    <span class="marquee-item">Mobile <span class="em">apps</span><span class="dot"></span></span>
+    <span class="marquee-item">Web <span class="em">platforms</span><span class="dot"></span></span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">What we do</div>
+        <h2 class="section-title">Technology, made <em>easy</em> for everyone.</h2>
+      </div>
+      <p class="section-desc">
+        From a five-person shop to a 500-person enterprise — we deliver the same engineering quality, just sized to your stage.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Featured: Custom App Development -->
+      <div class="service-card large featured">
+        <div class="service-num">01 / Featured</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3 class="service-title">Custom Application Development</h3>
+        <p class="service-desc">
+          We design, engineer, and ship native apps, web apps, and SaaS platforms tailored to the exact problem your business needs to solve. From slot-machine entertainment apps to IT ticketing dashboards — we've built it all.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">iOS</span>
+          <span class="service-tag">Android</span>
+          <span class="service-tag">Web</span>
+          <span class="service-tag">SaaS</span>
+          <span class="service-tag">API</span>
+        </div>
+        <svg class="service-bg-art" width="200" height="200" viewBox="0 0 200 200" fill="none">
+          <circle cx="100" cy="100" r="80" stroke="white" stroke-width="1"/>
+          <circle cx="100" cy="100" r="60" stroke="white" stroke-width="1"/>
+          <circle cx="100" cy="100" r="40" stroke="white" stroke-width="1"/>
+        </svg>
+      </div>
+
+      <!-- Business Solutions -->
+      <div class="service-card small">
+        <div class="service-num">02</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1457C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+        </div>
+        <h3 class="service-title">Business Solutions &amp; Strategy</h3>
+        <p class="service-desc">
+          Whether you're starting from scratch or scaling up — we map the technology to your roadmap. Workflow automation, internal tools, dashboards, and the strategy to use them.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">Workflow</span>
+          <span class="service-tag">Automation</span>
+          <span class="service-tag">Consulting</span>
+        </div>
+      </div>
+
+      <!-- Web -->
+      <div class="service-card third">
+        <div class="service-num">03</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1457C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3 class="service-title">Website Design &amp; Build</h3>
+        <p class="service-desc">
+          Marketing sites, e-commerce, brand microsites, and web platforms — designed to convert and engineered to last.
+        </p>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="service-card third">
+        <div class="service-num">04</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1457C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </div>
+        <h3 class="service-title">Enterprise Systems</h3>
+        <p class="service-desc">
+          Internal tools, IT helpdesk platforms, knowledge bases, and operations dashboards — built for teams that need things to actually work at scale.
+        </p>
+      </div>
+
+      <!-- Entertainment -->
+      <div class="service-card third">
+        <div class="service-num">05</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1457C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        </div>
+        <h3 class="service-title">Entertainment &amp; Gaming</h3>
+        <p class="service-desc">
+          Interactive entertainment experiences, social games, and engagement platforms — we've shipped mechanics from slot reels to leaderboards.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="audience">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">Who we serve</div>
+        <h2 class="section-title">Five industries.<br>One <em>standard</em>.</h2>
+      </div>
+      <p class="section-desc">
+        We've intentionally diversified — because the best ideas in one sector almost always solve a problem in another.
+      </p>
+    </div>
+
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="audience-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg>
+        </div>
+        <h3 class="audience-title">Enterprise</h3>
+        <p class="audience-desc">Internal tools, ticketing systems, and operational platforms for established companies.</p>
+      </div>
+
+      <div class="audience-card">
+        <div class="audience-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6m11-11h-6m-10 0H1m17.07-7.07l-4.24 4.24m-5.66 5.66l-4.24 4.24m12.73 0l-4.24-4.24m-5.66-5.66L4.93 4.93"/></svg>
+        </div>
+        <h3 class="audience-title">Small Business</h3>
+        <p class="audience-desc">Big-tech engineering scaled to startup budgets, with the strategy to grow into it.</p>
+      </div>
+
+      <div class="audience-card">
+        <div class="audience-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <h3 class="audience-title">Education</h3>
+        <p class="audience-desc">Learning platforms, training portals, and procedure tools that make complex things teachable.</p>
+      </div>
+
+      <div class="audience-card">
+        <div class="audience-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <h3 class="audience-title">Entertainment</h3>
+        <p class="audience-desc">Games, interactive experiences, and engagement mechanics that keep audiences coming back.</p>
+      </div>
+
+      <div class="audience-card">
+        <div class="audience-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="audience-title">Startups</h3>
+        <p class="audience-desc">From validated idea to launched MVP — and the strategy to get to product-market fit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="work" id="work">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">Selected work</div>
+        <h2 class="section-title">Things we've <em>shipped</em>.</h2>
+      </div>
+      <p class="section-desc">
+        A small slice of what we've built — across entertainment, internal tools, and enterprise platforms.
+      </p>
+    </div>
+
+    <div class="work-grid">
+
+      <a class="work-card" href="https://billiondollarslots.com" target="_blank" rel="noopener noreferrer">
+        <div class="work-visual preview-casino">
+          <div class="lamp"></div>
+          <div class="slots">
+            <div class="slot">7</div>
+            <div class="slot">7</div>
+            <div class="slot">7</div>
+          </div>
+          <div class="badge">// Entertainment</div>
+        </div>
+        <div class="work-meta">
+          <div class="work-type">Mobile Game</div>
+          <h3 class="work-title">Billion Dollar Slots</h3>
+          <p class="work-desc">A themed slot-style entertainment app with tiered jackpot multipliers, inventory system, and progression mechanics.</p>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://stepscanhelp.com" target="_blank" rel="noopener noreferrer">
+        <div class="work-visual preview-steps">
+          <div class="panel">
+            <div class="panel-title">Steps</div>
+            <div class="list-item"><div class="check">✓</div>Set up new employee laptop</div>
+            <div class="list-item"><div class="check">✓</div>Windows Autopilot enrollment</div>
+            <div class="list-item"><div class="check empty"></div>Software install checklist</div>
+            <div class="list-item"><div class="check empty"></div>Configure Outlook</div>
+          </div>
+          <div class="floating"><span class="dot"></span> 3 procedures active</div>
+        </div>
+        <div class="work-meta">
+          <div class="work-type">Web Application</div>
+          <h3 class="work-title">Steps</h3>
+          <p class="work-desc">A procedure walkthrough and tracking platform — turning long-form documentation into checked-off, recorded workflows.</p>
+        </div>
+      </a>
+
+      <a class="work-card" href="https://clearday-app.com" target="_blank" rel="noopener noreferrer">
+        <div class="work-visual preview-clearday">
+          <div class="header-row">
+            <div class="logo-box"></div>
+            <div class="brand">ClearDay</div>
+          </div>
+          <div class="stats">
+            <div class="stat"><div class="stat-label">Open</div><div class="stat-num">3</div></div>
+            <div class="stat"><div class="stat-label">Active</div><div class="stat-num">2</div></div>
+            <div class="stat"><div class="stat-label">Closed</div><div class="stat-num">1</div></div>
+          </div>
+          <div class="cards">
+            <div class="mini-card">All Tickets</div>
+            <div class="mini-card">New Ticket</div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div class="work-type">Enterprise SaaS</div>
+          <h3 class="work-title">ClearDay</h3>
+          <p class="work-desc">A full-featured IT helpdesk and ticketing platform with role-based access, knowledge base, and reporting.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">How we work</div>
+        <h2 class="section-title">A process built<br>for <em>real</em> results.</h2>
+      </div>
+      <p class="section-desc">
+        No bloated retainers. No vague deliverables. Just a clear path from "I have an idea" to "It's live."
+      </p>
+    </div>
+
+    <div class="process-list">
+      <div class="process-row">
+        <div class="process-num">/ 01</div>
+        <div class="process-name">Discovery</div>
+        <div class="process-detail">We listen first. What's the problem? Who's it for? Where does it hurt today? Free consultation, no commitment.</div>
+        <div class="process-time">~ 1 week</div>
+      </div>
+      <div class="process-row">
+        <div class="process-num">/ 02</div>
+        <div class="process-name">Strategy &amp; Scope</div>
+        <div class="process-detail">A fixed-price proposal with timelines, milestones, and exactly what you're getting. No surprises down the road.</div>
+        <div class="process-time">~ 1–2 weeks</div>
+      </div>
+      <div class="process-row">
+        <div class="process-num">/ 03</div>
+        <div class="process-name">Design &amp; Build</div>
+        <div class="process-detail">Weekly check-ins. Working prototypes early. You see progress in real time — not at the end.</div>
+        <div class="process-time">~ 4–12 weeks</div>
+      </div>
+      <div class="process-row">
+        <div class="process-num">/ 04</div>
+        <div class="process-name">Launch &amp; Support</div>
+        <div class="process-detail">Deploy, train your team, and stick around. Ongoing maintenance and feature work as you grow.</div>
+        <div class="process-time">Ongoing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-content">
+    <div class="cta-eyebrow">
+      <span class="dot"></span>
+      <span>Free 30-minute consultation</span>
+    </div>
+    <h2 class="cta-title">Ready to <em>build</em><br>something real?</h2>
+    <p class="cta-desc">
+      Tell us about your business, your idea, or the problem keeping you up at night. We'll tell you honestly whether we can help — and how.
+    </p>
+    <div class="cta-buttons">
+      <a href="mailto:hello@delcom.io" class="btn btn-primary">
+        Start the conversation
+        <span class="arrow">→</span>
+      </a>
+      <a href="#work" class="btn btn-secondary">Browse our work</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-block">
+        <div class="logo">
+          <span class="del">Del</span><span class="com">Com</span><span class="dot"></span>
+        </div>
+        <p class="footer-tagline">Big tech energy. Small business heart. Software that just works.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">App Development</a>
+        <a href="#services">Web Design</a>
+        <a href="#services">Business Strategy</a>
+        <a href="#services">Enterprise Systems</a>
+        <a href="#services">Entertainment</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#work">Our Work</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:hello@delcom.io">hello@delcom.io</a>
+        <a href="tel:">Schedule a call</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 DelCom. All rights reserved.</div>
+      <div class="legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav border on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+</script>
+
+</body>
+</html>
