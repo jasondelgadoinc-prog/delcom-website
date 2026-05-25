@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DelCom — Big Tech Energy for Every Business</title>
+<title>DelCom — A small studio building big things</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Caveat:wght@500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --blue: #1457C8;
@@ -16,6 +16,8 @@
   --orange: #F26F1F;
   --orange-bright: #FF8533;
   --orange-soft: #FFF1E6;
+  --yellow: #FFD24C;
+  --mint: #B8E6CB;
   --ink: #0B1220;
   --ink-soft: #364056;
   --paper: #FAFAF7;
@@ -24,9 +26,7 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
-
 body {
   font-family: 'Sora', sans-serif;
   background: var(--paper);
@@ -50,15 +50,14 @@ nav {
   transition: border-color 0.3s;
 }
 nav.scrolled { border-bottom-color: var(--line); }
-
 .nav-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-
 .logo {
   font-family: 'Sora', sans-serif;
   font-weight: 800;
   font-size: 26px;
   letter-spacing: -0.04em;
   display: flex; align-items: center;
+  text-decoration: none;
 }
 .logo .del { color: var(--blue); }
 .logo .com { color: var(--orange); }
@@ -74,7 +73,6 @@ nav.scrolled { border-bottom-color: var(--line); }
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.4); opacity: 0.6; }
 }
-
 .nav-links { display: flex; gap: 36px; align-items: center; }
 .nav-links a {
   color: var(--ink);
@@ -94,7 +92,6 @@ nav.scrolled { border-bottom-color: var(--line); }
 }
 .nav-links a:hover { color: var(--blue); }
 .nav-links a:hover::after { width: 100%; }
-
 .nav-cta {
   background: var(--ink);
   color: var(--paper) !important;
@@ -107,34 +104,41 @@ nav.scrolled { border-bottom-color: var(--line); }
 
 /* ============ HERO ============ */
 .hero {
-  padding: 180px 32px 80px;
+  min-height: 92vh;
+  padding: 140px 32px 60px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
-.hero-bg {
+.hero-shapes {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
 }
-.hero-bg::before {
-  content: '';
+.shape {
   position: absolute;
-  top: -10%; right: -20%;
-  width: 800px; height: 800px;
-  background: radial-gradient(circle, rgba(242, 111, 31, 0.15) 0%, transparent 60%);
   border-radius: 50%;
-  animation: floatA 20s ease-in-out infinite;
 }
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  bottom: -20%; left: -10%;
-  width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(20, 87, 200, 0.18) 0%, transparent 60%);
-  border-radius: 50%;
-  animation: floatB 24s ease-in-out infinite;
+.shape-1 {
+  top: 15%; right: 8%;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(242, 111, 31, 0.18) 0%, transparent 70%);
+  animation: floatA 18s ease-in-out infinite;
+}
+.shape-2 {
+  bottom: 5%; left: -5%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(20, 87, 200, 0.15) 0%, transparent 70%);
+  animation: floatB 22s ease-in-out infinite;
+}
+.shape-3 {
+  top: 60%; right: 30%;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(255, 210, 76, 0.25) 0%, transparent 70%);
+  animation: floatA 16s ease-in-out infinite reverse;
 }
 @keyframes floatA {
   0%, 100% { transform: translate(0, 0) scale(1); }
@@ -145,15 +149,15 @@ nav.scrolled { border-bottom-color: var(--line); }
   50% { transform: translate(40px, -30px) scale(1.15); }
 }
 
-.hero-grid {
+.hero-grid-bg {
   position: absolute;
   inset: 0;
   background-image:
     linear-gradient(rgba(11, 18, 32, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(11, 18, 32, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
   z-index: 0;
 }
 
@@ -162,9 +166,16 @@ nav.scrolled { border-bottom-color: var(--line); }
   z-index: 1;
   max-width: 1280px;
   margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
 }
 
-.hero-eyebrow {
+.hero-left { position: relative; }
+
+.hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -178,62 +189,52 @@ nav.scrolled { border-bottom-color: var(--line); }
   margin-bottom: 32px;
   animation: fadeUp 0.8s ease-out;
 }
-.hero-eyebrow .dot-orange {
+.hero-badge .dot {
   width: 8px; height: 8px;
-  background: var(--orange);
+  background: #22C55E;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(242, 111, 31, 0.2);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
 }
 
 h1.hero-title {
   font-family: 'Fraunces', serif;
   font-weight: 400;
-  font-size: clamp(48px, 7vw, 96px);
-  line-height: 0.95;
+  font-size: clamp(54px, 7vw, 96px);
+  line-height: 0.92;
   letter-spacing: -0.04em;
   color: var(--ink);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
   animation: fadeUp 0.8s ease-out 0.1s both;
   font-variation-settings: "SOFT" 50;
 }
-h1.hero-title .accent-blue {
-  color: var(--blue);
-  font-style: italic;
-  font-weight: 300;
-}
-h1.hero-title .accent-orange {
-  color: var(--orange);
-  font-style: italic;
-  font-weight: 300;
-}
-h1.hero-title .underline {
+h1.hero-title .word-orange { color: var(--orange); font-style: italic; font-weight: 300; }
+h1.hero-title .word-blue { color: var(--blue); font-style: italic; font-weight: 300; }
+h1.hero-title .scribble-word {
   position: relative;
   display: inline-block;
+  z-index: 1;
 }
-h1.hero-title .underline::after {
-  content: '';
+h1.hero-title .scribble-word svg {
   position: absolute;
-  left: 0; right: 0;
-  bottom: 6px;
-  height: 14px;
-  background: var(--orange);
-  opacity: 0.25;
+  bottom: -8px;
+  left: -8px;
+  width: calc(100% + 16px);
+  height: 24px;
   z-index: -1;
-  transform: skew(-4deg);
 }
 
 .hero-sub {
-  font-size: clamp(17px, 1.4vw, 21px);
-  max-width: 620px;
+  font-size: 19px;
+  max-width: 480px;
   color: var(--ink-soft);
-  margin-bottom: 48px;
+  margin-bottom: 36px;
   animation: fadeUp 0.8s ease-out 0.2s both;
 }
 
-.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.8s ease-out 0.3s both; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp 0.8s ease-out 0.3s both; }
 
 .btn {
-  padding: 16px 28px;
+  padding: 16px 26px;
   border-radius: 100px;
   font-family: 'Sora', sans-serif;
   font-weight: 500;
@@ -246,52 +247,247 @@ h1.hero-title .underline::after {
   border: none;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-
-.btn-primary {
-  background: var(--ink);
-  color: var(--paper);
-}
+.btn-primary { background: var(--ink); color: var(--paper); }
 .btn-primary:hover {
-  background: var(--blue);
+  background: var(--orange);
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(20, 87, 200, 0.35);
+  box-shadow: 0 12px 30px rgba(242, 111, 31, 0.4);
 }
 .btn-primary .arrow { transition: transform 0.3s; }
 .btn-primary:hover .arrow { transform: translateX(4px); }
-
 .btn-secondary {
   background: transparent;
   color: var(--ink);
   border: 1.5px solid var(--ink);
 }
-.btn-secondary:hover {
-  background: var(--ink);
-  color: var(--paper);
+.btn-secondary:hover { background: var(--ink); color: var(--paper); }
+
+/* ============ HERO RIGHT — PLAYFUL VISUAL ============ */
+.hero-visual {
+  position: relative;
+  height: 540px;
+  animation: fadeUp 1s ease-out 0.4s both;
 }
 
-.hero-meta {
-  margin-top: 80px;
-  display: flex;
-  gap: 60px;
-  flex-wrap: wrap;
-  animation: fadeUp 0.8s ease-out 0.4s both;
+.visual-card {
+  position: absolute;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px -15px rgba(11, 18, 32, 0.18);
+  padding: 22px;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.hero-meta-item .num {
+
+/* "Big Tech" card - top left */
+.card-tech {
+  top: 0; left: 0;
+  width: 260px;
+  background: var(--ink);
+  color: white;
+  transform: rotate(-4deg);
+  animation: floatCard1 6s ease-in-out infinite;
+}
+.card-tech:hover { transform: rotate(-2deg) translateY(-6px); }
+.card-tech .label {
+  font-size: 11px;
+  color: var(--orange-bright);
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.card-tech .stat-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.card-tech .big-num {
   font-family: 'Fraunces', serif;
   font-size: 48px;
   font-weight: 500;
-  color: var(--ink);
-  display: block;
   line-height: 1;
+  letter-spacing: -0.03em;
 }
-.hero-meta-item .num .accent { color: var(--orange); }
-.hero-meta-item .lbl {
+.card-tech .delta {
+  color: #22C55E;
   font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+.card-tech .caption {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+}
+.card-tech .bar-chart {
+  display: flex;
+  gap: 4px;
+  align-items: end;
+  height: 36px;
+  margin-top: 14px;
+}
+.card-tech .bar {
+  flex: 1;
+  background: linear-gradient(180deg, var(--orange) 0%, var(--orange-bright) 100%);
+  border-radius: 2px 2px 0 0;
+  opacity: 0.7;
+  animation: barGrow 1.5s ease-out both;
+}
+.card-tech .bar:nth-child(1) { height: 30%; animation-delay: 0.5s; }
+.card-tech .bar:nth-child(2) { height: 55%; animation-delay: 0.6s; }
+.card-tech .bar:nth-child(3) { height: 40%; animation-delay: 0.7s; }
+.card-tech .bar:nth-child(4) { height: 70%; animation-delay: 0.8s; }
+.card-tech .bar:nth-child(5) { height: 85%; animation-delay: 0.9s; }
+.card-tech .bar:nth-child(6) { height: 100%; opacity: 1; animation-delay: 1s; }
+@keyframes barGrow {
+  from { transform: scaleY(0); transform-origin: bottom; }
+  to { transform: scaleY(1); }
+}
+
+/* "Small Business" card - middle right */
+.card-shop {
+  top: 60px; right: 0;
+  width: 220px;
+  transform: rotate(3deg);
+  animation: floatCard2 7s ease-in-out infinite;
+}
+.card-shop:hover { transform: rotate(1deg) translateY(-6px); }
+.card-shop .shop-icon {
+  width: 100%;
+  height: 110px;
+  background: linear-gradient(135deg, var(--orange-soft) 0%, var(--yellow) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.card-shop .shop-icon svg { width: 60px; height: 60px; }
+.card-shop .shop-icon::after {
+  content: '';
+  position: absolute;
+  top: -10%; left: -10%;
+  width: 50%; height: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+}
+.card-shop .shop-name {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.card-shop .shop-meta {
+  font-size: 12px;
   color: var(--ink-soft);
-  margin-top: 8px;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.card-shop .shop-meta::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: #22C55E;
+  border-radius: 50%;
+}
+
+/* "Chat" card - bottom left */
+.card-chat {
+  bottom: 30px; left: 40px;
+  width: 280px;
+  transform: rotate(2deg);
+  animation: floatCard3 8s ease-in-out infinite;
+}
+.card-chat:hover { transform: rotate(0deg) translateY(-6px); }
+.card-chat .chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.card-chat .avatar {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-bright) 100%);
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 13px;
+}
+.card-chat .chat-name { font-size: 13px; font-weight: 600; }
+.card-chat .chat-status {
+  font-size: 11px;
+  color: #22C55E;
+  display: flex; align-items: center; gap: 4px;
+}
+.card-chat .chat-status::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: #22C55E;
+  border-radius: 50%;
+}
+.card-chat .bubble {
+  background: var(--blue-soft);
+  color: var(--ink);
+  padding: 10px 14px;
+  border-radius: 14px 14px 14px 4px;
+  font-size: 13px;
+  margin-bottom: 8px;
+  max-width: 80%;
+}
+.card-chat .typing {
+  display: flex;
+  gap: 4px;
+  padding: 10px 14px;
+  background: var(--paper-warm);
+  border-radius: 14px;
+  width: fit-content;
+}
+.card-chat .typing span {
+  width: 6px; height: 6px;
+  background: var(--ink-soft);
+  border-radius: 50%;
+  animation: typing 1.4s infinite ease-in-out;
+}
+.card-chat .typing span:nth-child(2) { animation-delay: 0.2s; }
+.card-chat .typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typing {
+  0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-3px); }
+}
+
+/* Connector lines + decorative stars */
+.visual-deco {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.deco-star {
+  position: absolute;
+  color: var(--orange);
+  animation: spinSlow 12s linear infinite;
+}
+.deco-star.s1 { top: 25%; right: 30%; font-size: 18px; }
+.deco-star.s2 { bottom: 40%; right: 5%; font-size: 24px; animation-duration: 16s; color: var(--blue); }
+.deco-star.s3 { top: 50%; left: 10%; font-size: 14px; animation-duration: 10s; color: var(--yellow); }
+@keyframes spinSlow { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+
+@keyframes floatCard1 {
+  0%, 100% { transform: rotate(-4deg) translateY(0); }
+  50% { transform: rotate(-4deg) translateY(-12px); }
+}
+@keyframes floatCard2 {
+  0%, 100% { transform: rotate(3deg) translateY(0); }
+  50% { transform: rotate(3deg) translateY(-10px); }
+}
+@keyframes floatCard3 {
+  0%, 100% { transform: rotate(2deg) translateY(0); }
+  50% { transform: rotate(2deg) translateY(-14px); }
 }
 
 @keyframes fadeUp {
@@ -301,7 +497,7 @@ h1.hero-title .underline::after {
 
 /* ============ MARQUEE ============ */
 .marquee {
-  padding: 32px 0;
+  padding: 28px 0;
   background: var(--ink);
   color: var(--paper);
   overflow: hidden;
@@ -317,44 +513,32 @@ h1.hero-title .underline::after {
 }
 .marquee-item {
   font-family: 'Fraunces', serif;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 300;
   letter-spacing: -0.02em;
   display: flex; align-items: center; gap: 60px;
   white-space: nowrap;
 }
-.marquee-item .dot {
-  width: 6px; height: 6px;
-  background: var(--orange);
-  border-radius: 50%;
-}
+.marquee-item .dot { width: 6px; height: 6px; background: var(--orange); border-radius: 50%; }
 .marquee-item .em { font-style: italic; color: var(--orange-bright); }
 @keyframes scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 
-/* ============ SERVICES ============ */
-.services {
+/* ============ WHAT WE DO (Simplified, visual) ============ */
+.what-we-do {
   padding: 120px 32px;
   position: relative;
 }
 
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 64px;
-  gap: 40px;
-  flex-wrap: wrap;
-}
 .section-tag {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--orange);
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -364,214 +548,187 @@ h1.hero-title .underline::after {
   width: 24px; height: 1px;
   background: var(--orange);
 }
+
 .section-title {
   font-family: 'Fraunces', serif;
-  font-size: clamp(36px, 5vw, 60px);
+  font-size: clamp(38px, 5vw, 64px);
   font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1;
-  max-width: 700px;
+  max-width: 800px;
 }
 .section-title em {
   font-style: italic;
   font-weight: 300;
   color: var(--blue);
 }
-.section-desc {
-  font-size: 17px;
-  color: var(--ink-soft);
-  max-width: 380px;
+.section-handwritten {
+  font-family: 'Caveat', cursive;
+  font-weight: 500;
+  color: var(--orange);
+  font-size: clamp(28px, 3.5vw, 42px);
+  display: inline-block;
+  transform: rotate(-2deg);
+  margin-left: 8px;
 }
 
-.services-grid {
+.section-header-simple {
+  margin-bottom: 64px;
+}
+
+.help-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
 
-.service-card {
+.help-card {
   background: white;
   border: 1px solid var(--line);
   border-radius: 24px;
-  padding: 36px;
+  padding: 28px;
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 3px;
-  background: var(--orange);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.service-card:hover {
+.help-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 24px 50px -20px rgba(11, 18, 32, 0.15);
   border-color: transparent;
 }
-.service-card:hover::before { transform: scaleX(1); }
 
-.service-card.large { grid-column: span 7; min-height: 380px; }
-.service-card.small { grid-column: span 5; min-height: 380px; }
-.service-card.third { grid-column: span 4; min-height: 320px; }
+.help-card.c1 { background: linear-gradient(135deg, #FFF5E8 0%, #FFE5C7 100%); }
+.help-card.c2 { background: linear-gradient(135deg, #EBF2FE 0%, #D0E0FB 100%); }
+.help-card.c3 { background: linear-gradient(135deg, #FFF7D6 0%, #FCE99A 100%); }
+.help-card.c4 { background: linear-gradient(135deg, #E0F4E8 0%, #BFE5CD 100%); }
 
-.service-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  color: var(--ink-soft);
-  margin-bottom: 24px;
-  display: flex; align-items: center; gap: 8px;
-}
-.service-num::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--line);
-}
-
-.service-icon {
-  width: 60px; height: 60px;
-  border-radius: 14px;
+.help-card .help-illus {
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  background: white;
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 24px;
-  background: var(--blue-soft);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
 }
-.service-card.featured .service-icon { background: var(--orange-soft); }
-.service-icon svg { width: 28px; height: 28px; }
+.help-card .help-illus svg { width: 32px; height: 32px; }
 
-.service-title {
+.help-card .help-name {
   font-family: 'Fraunces', serif;
-  font-size: 30px;
-  font-weight: 400;
+  font-size: 24px;
+  font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1.1;
-  margin-bottom: 16px;
-}
-.service-card.large .service-title { font-size: 38px; }
-
-.service-desc {
-  font-size: 15px;
-  color: var(--ink-soft);
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.service-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.service-tag {
-  font-size: 12px;
-  padding: 6px 12px;
-  background: var(--paper-warm);
-  border-radius: 100px;
-  color: var(--ink-soft);
-  font-family: 'JetBrains Mono', monospace;
-}
-
-.service-card.featured {
-  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
-  color: white;
-  border: none;
-}
-.service-card.featured .service-title { color: white; }
-.service-card.featured .service-desc { color: rgba(255, 255, 255, 0.8); }
-.service-card.featured .service-num { color: rgba(255, 255, 255, 0.5); }
-.service-card.featured .service-num::after { background: rgba(255, 255, 255, 0.2); }
-.service-card.featured .service-tag {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-}
-.service-card.featured .service-bg-art {
-  position: absolute;
-  right: -40px; bottom: -40px;
-  opacity: 0.15;
-}
-
-/* ============ WHO WE SERVE ============ */
-.audience {
-  padding: 120px 32px;
-  background: var(--ink);
-  color: var(--paper);
-  position: relative;
-  overflow: hidden;
-}
-.audience::before {
-  content: '';
-  position: absolute;
-  top: 0; right: 0;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(242, 111, 31, 0.2) 0%, transparent 70%);
-  border-radius: 50%;
-}
-
-.audience .section-title { color: var(--paper); }
-.audience .section-title em { color: var(--orange-bright); }
-.audience .section-tag { color: var(--orange-bright); }
-.audience .section-tag::before { background: var(--orange-bright); }
-.audience .section-desc { color: rgba(250, 250, 247, 0.6); }
-
-.audience-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-  position: relative;
-  z-index: 1;
-}
-
-.audience-card {
-  padding: 32px 24px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  transition: all 0.4s;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.audience-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-4px);
-  border-color: var(--orange);
-}
-.audience-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--orange), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.6s;
-}
-.audience-card:hover::after { transform: translateX(0); }
-
-.audience-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  background: rgba(242, 111, 31, 0.15);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 20px;
-}
-.audience-icon svg { width: 24px; height: 24px; color: var(--orange-bright); }
-.audience-title {
-  font-family: 'Fraunces', serif;
-  font-size: 22px;
-  font-weight: 500;
   margin-bottom: 8px;
-  letter-spacing: -0.01em;
 }
-.audience-desc {
+.help-card .help-tag {
   font-size: 13px;
-  color: rgba(250, 250, 247, 0.6);
+  color: var(--ink-soft);
   line-height: 1.5;
+}
+
+/* ============ STUDIO STRIP — humanizing the firm ============ */
+.studio-strip {
+  padding: 80px 32px;
+  background: var(--paper-warm);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.studio-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.studio-left .quote-mark {
+  font-family: 'Fraunces', serif;
+  font-size: 80px;
+  line-height: 1;
+  color: var(--orange);
+  margin-bottom: -20px;
+}
+.studio-left .quote {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+.studio-left .quote em {
+  color: var(--blue);
+  font-weight: 500;
+}
+.studio-left .sig {
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  color: var(--ink);
+}
+.studio-left .sig-line {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+.studio-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.studio-stat {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid var(--line);
+}
+.studio-stat .num {
+  font-family: 'Fraunces', serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.studio-stat .num em { color: var(--orange); font-style: normal; }
+.studio-stat .lbl {
+  font-size: 13px;
+  color: var(--ink-soft);
 }
 
 /* ============ WORK ============ */
 .work {
   padding: 120px 32px;
-  background: var(--paper-warm);
+  background: var(--paper);
+}
+
+.work-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 56px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.work-header .small-note {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  color: var(--ink-soft);
+  max-width: 280px;
+  transform: rotate(-1deg);
+  line-height: 1.3;
+}
+.work-header .small-note .arrow-down {
+  display: inline-block;
+  font-size: 24px;
+  color: var(--orange);
+  transform: translateY(2px);
 }
 
 .work-grid {
@@ -615,19 +772,11 @@ h1.hero-title .underline::after {
   background: var(--orange);
   color: white;
 }
-.work-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px -20px rgba(11, 18, 32, 0.2);
-}
+.work-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px -20px rgba(11, 18, 32, 0.2); }
 
-.work-visual {
-  aspect-ratio: 4/3;
-  position: relative;
-  overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-}
+.work-visual { aspect-ratio: 4/3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 
-/* App preview: Casino game */
+/* Casino preview */
 .preview-casino {
   background:
     radial-gradient(circle at 30% 40%, rgba(255, 200, 100, 0.4), transparent 60%),
@@ -678,7 +827,7 @@ h1.hero-title .underline::after {
   border: 1px solid rgba(255,255,255,0.2);
 }
 
-/* App preview: Steps procedures */
+/* Steps preview */
 .preview-steps {
   background: linear-gradient(135deg, #F5F3FF 0%, #EDE7FE 100%);
   position: relative;
@@ -733,16 +882,13 @@ h1.hero-title .underline::after {
   border-radius: 50%;
 }
 
-/* App preview: ClearDay dashboard */
+/* ClearDay preview */
 .preview-clearday {
   background: linear-gradient(135deg, #F0F7FF 0%, #DCEAFE 100%);
   padding: 24px;
   position: relative;
 }
-.preview-clearday .header-row {
-  display: flex; align-items: center; gap: 8px;
-  margin-bottom: 14px;
-}
+.preview-clearday .header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
 .preview-clearday .logo-box {
   width: 22px; height: 22px;
   background: var(--blue);
@@ -757,9 +903,7 @@ h1.hero-title .underline::after {
   background: var(--orange);
   border-radius: 2px;
 }
-.preview-clearday .brand {
-  font-weight: 700; font-size: 13px; color: var(--ink);
-}
+.preview-clearday .brand { font-weight: 700; font-size: 13px; color: var(--ink); }
 .preview-clearday .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -803,92 +947,26 @@ h1.hero-title .underline::after {
 }
 .preview-clearday .mini-card:nth-child(2) { border-color: var(--orange); }
 
-.work-meta {
-  padding: 28px;
-}
+.work-meta { padding: 24px 28px 28px; }
 .work-type {
   font-size: 11px;
   font-family: 'JetBrains Mono', monospace;
   color: var(--orange);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 .work-title {
   font-family: 'Fraunces', serif;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 500;
   letter-spacing: -0.02em;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 .work-desc {
-  font-size: 14px;
-  color: var(--ink-soft);
-  line-height: 1.55;
-}
-
-/* ============ PROCESS ============ */
-.process {
-  padding: 120px 32px;
-}
-
-.process-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin-top: 64px;
-  border-top: 1px solid var(--line);
-}
-
-.process-row {
-  display: grid;
-  grid-template-columns: 80px 1fr 2fr 1fr;
-  padding: 36px 0;
-  border-bottom: 1px solid var(--line);
-  align-items: start;
-  gap: 32px;
-  transition: padding 0.4s;
-  cursor: default;
-  position: relative;
-}
-.process-row::before {
-  content: '';
-  position: absolute;
-  left: 0; right: 0; top: 0;
-  height: 100%;
-  background: var(--orange-soft);
-  z-index: -1;
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.4s;
-}
-.process-row:hover { padding-left: 24px; padding-right: 24px; }
-.process-row:hover::before { transform: scaleY(1); }
-
-.process-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
-  color: var(--orange);
-  font-weight: 500;
-}
-.process-name {
-  font-family: 'Fraunces', serif;
-  font-size: 28px;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-}
-.process-detail {
-  font-size: 15px;
-  color: var(--ink-soft);
-  line-height: 1.6;
-}
-.process-time {
   font-size: 13px;
-  color: var(--ink);
-  font-weight: 500;
-  text-align: right;
-  font-family: 'JetBrains Mono', monospace;
+  color: var(--ink-soft);
+  line-height: 1.5;
 }
 
 /* ============ CTA ============ */
@@ -940,27 +1018,23 @@ h1.hero-title .underline::after {
   border-radius: 50%;
   box-shadow: 0 0 0 4px rgba(242, 111, 31, 0.3);
 }
-
 .cta-title {
   font-family: 'Fraunces', serif;
-  font-size: clamp(40px, 6vw, 80px);
+  font-size: clamp(44px, 6vw, 80px);
   font-weight: 300;
   letter-spacing: -0.03em;
   line-height: 1;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
-.cta-title em {
-  font-style: italic;
-  color: var(--orange-bright);
-}
+.cta-title em { font-style: italic; color: var(--orange-bright); }
 .cta-desc {
-  font-size: 18px;
-  color: rgba(255,255,255,0.7);
+  font-size: 17px;
+  color: rgba(255,255,255,0.75);
   margin-bottom: 40px;
-  max-width: 540px;
+  max-width: 480px;
   margin-left: auto; margin-right: auto;
 }
-.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .cta-buttons .btn-primary { background: var(--orange); }
 .cta-buttons .btn-primary:hover { background: var(--orange-bright); box-shadow: 0 12px 30px rgba(242, 111, 31, 0.5); }
 .cta-buttons .btn-secondary { color: white; border-color: rgba(255,255,255,0.3); }
@@ -1024,29 +1098,27 @@ footer {
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1024px) {
-  .services-grid > * { grid-column: span 12 !important; }
-  .audience-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-content { grid-template-columns: 1fr; gap: 80px; }
+  .hero-visual { height: 480px; max-width: 500px; margin: 0 auto; }
+  .help-grid { grid-template-columns: 1fr 1fr; }
   .work-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; }
-  .process-row { grid-template-columns: 50px 1fr; }
-  .process-detail, .process-time { grid-column: 2; }
-  .process-time { text-align: left; }
+  .studio-inner { grid-template-columns: 1fr; gap: 40px; }
 }
 @media (max-width: 640px) {
-  .nav-links { display: none; }
-  .nav-links .nav-cta { display: inline-flex; }
-  .nav-links { display: flex; gap: 0; }
   .nav-links a:not(.nav-cta) { display: none; }
-  .hero { padding-top: 130px; }
-  .hero-meta { gap: 32px; }
-  .hero-meta-item .num { font-size: 36px; }
-  .section-header { flex-direction: column; align-items: flex-start; }
-  .audience-grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 130px; min-height: auto; }
+  .hero-visual { height: 420px; }
+  .card-tech, .card-shop, .card-chat { transform: scale(0.85) rotate(-4deg); }
+  .card-shop { transform: scale(0.85) rotate(3deg); }
+  .card-chat { transform: scale(0.85) rotate(2deg); }
+  .help-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; padding-bottom: 32px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
   .footer-bottom .legal a { margin-left: 0; margin-right: 16px; }
   .container { padding: 0 20px; }
-  .services, .work, .process, .audience, .cta-section { padding: 80px 20px; }
+  .what-we-do, .work, .cta-section, .studio-strip { padding: 80px 20px; }
+  .work-header { flex-direction: column; align-items: flex-start; }
 }
 </style>
 </head>
@@ -1059,50 +1131,98 @@ footer {
       <span class="del">Del</span><span class="com">Com</span><span class="dot"></span>
     </a>
     <div class="nav-links">
-      <a href="#services">Services</a>
+      <a href="#help">What we do</a>
       <a href="#work">Work</a>
-      <a href="#process">Process</a>
-      <a href="#contact" class="nav-cta">Start a Project</a>
+      <a href="#about">Studio</a>
+      <a href="#contact" class="nav-cta">Say hello</a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
+  <div class="hero-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  <div class="hero-grid-bg"></div>
+
   <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span class="dot-orange"></span>
-      <span>Now accepting Q3 2026 projects</span>
-    </div>
-    <h1 class="hero-title">
-      Big tech <span class="accent-orange">energy.</span><br>
-      Small business <span class="underline">heart</span>.<br>
-      <span class="accent-blue">Software that works.</span>
-    </h1>
-    <p class="hero-sub">
-      DelCom builds custom applications, websites, and business solutions for enterprises, startups, schools, and entertainment brands — pairing enterprise-grade engineering with the agility of a partner who actually picks up the phone.
-    </p>
-    <div class="hero-ctas">
-      <a href="#contact" class="btn btn-primary">
-        Start your project
-        <span class="arrow">→</span>
-      </a>
-      <a href="#work" class="btn btn-secondary">See our work</a>
-    </div>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <span class="num">20<span class="accent">+</span></span>
-        <span class="lbl">Apps shipped</span>
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>A small studio. Real humans. Picking up the phone.</span>
       </div>
-      <div class="hero-meta-item">
-        <span class="num">5<span class="accent">×</span></span>
-        <span class="lbl">Industries served</span>
+      <h1 class="hero-title">
+        Big tech <span class="word-orange">energy.</span><br>
+        Small business <span class="scribble-word">heart<svg viewBox="0 0 200 24" preserveAspectRatio="none"><path d="M5,18 Q50,4 100,16 T195,12" stroke="#F26F1F" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.7"/></svg></span>.
+      </h1>
+      <p class="hero-sub">
+        We help small businesses get up and running — apps, websites, email, support. Done right, without the agency overhead.
+      </p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">
+          Let's chat
+          <span class="arrow">→</span>
+        </a>
+        <a href="#work" class="btn btn-secondary">See our work</a>
       </div>
-      <div class="hero-meta-item">
-        <span class="num">100<span class="accent">%</span></span>
-        <span class="lbl">Custom-built</span>
+    </div>
+
+    <!-- PLAYFUL VISUAL — three floating cards showing the duality -->
+    <div class="hero-visual">
+      <div class="visual-deco">
+        <div class="deco-star s1">✦</div>
+        <div class="deco-star s2">✦</div>
+        <div class="deco-star s3">✦</div>
+      </div>
+
+      <!-- Tech dashboard card -->
+      <div class="visual-card card-tech">
+        <div class="label">// Live Metrics</div>
+        <div class="stat-row">
+          <div class="big-num">20+</div>
+          <div class="delta">↑ shipped</div>
+        </div>
+        <div class="caption">apps built &amp; deployed</div>
+        <div class="bar-chart">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+
+      <!-- Small shop card -->
+      <div class="visual-card card-shop">
+        <div class="shop-icon">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M8 28h48v24a4 4 0 01-4 4H12a4 4 0 01-4-4V28z" fill="#F26F1F"/>
+            <path d="M6 16l4-8h44l4 8v8a6 6 0 01-12 0 6 6 0 01-12 0 6 6 0 01-12 0 6 6 0 01-12 0v-8z" fill="#1457C8"/>
+            <rect x="26" y="38" width="12" height="18" fill="#FFF"/>
+            <circle cx="35" cy="47" r="1" fill="#1457C8"/>
+          </svg>
+        </div>
+        <div class="shop-name">Your shop</div>
+        <div class="shop-meta">Now online</div>
+      </div>
+
+      <!-- Chat / human touch card -->
+      <div class="visual-card card-chat">
+        <div class="chat-header">
+          <div class="avatar">D</div>
+          <div>
+            <div class="chat-name">DelCom</div>
+            <div class="chat-status">Online now</div>
+          </div>
+        </div>
+        <div class="bubble">Hey! Got your message — let me take a look 👀</div>
+        <div class="typing">
+          <span></span><span></span><span></span>
+        </div>
       </div>
     </div>
   </div>
@@ -1111,172 +1231,123 @@ footer {
 <!-- MARQUEE -->
 <div class="marquee">
   <div class="marquee-track">
-    <span class="marquee-item">Enterprise <span class="em">solutions</span><span class="dot"></span></span>
-    <span class="marquee-item">Entertainment <span class="em">platforms</span><span class="dot"></span></span>
-    <span class="marquee-item">Education <span class="em">tech</span><span class="dot"></span></span>
-    <span class="marquee-item">Custom <span class="em">software</span><span class="dot"></span></span>
-    <span class="marquee-item">Small business <span class="em">strategy</span><span class="dot"></span></span>
-    <span class="marquee-item">Mobile <span class="em">apps</span><span class="dot"></span></span>
-    <span class="marquee-item">Web <span class="em">platforms</span><span class="dot"></span></span>
+    <span class="marquee-item">Apps <span class="em">that ship</span><span class="dot"></span></span>
+    <span class="marquee-item">Websites <span class="em">that work</span><span class="dot"></span></span>
+    <span class="marquee-item">Email <span class="em">that lands</span><span class="dot"></span></span>
+    <span class="marquee-item">Support <span class="em">that answers</span><span class="dot"></span></span>
+    <span class="marquee-item">Built <span class="em">for small biz</span><span class="dot"></span></span>
     <!-- duplicate for seamless scroll -->
-    <span class="marquee-item">Enterprise <span class="em">solutions</span><span class="dot"></span></span>
-    <span class="marquee-item">Entertainment <span class="em">platforms</span><span class="dot"></span></span>
-    <span class="marquee-item">Education <span class="em">tech</span><span class="dot"></span></span>
-    <span class="marquee-item">Custom <span class="em">software</span><span class="dot"></span></span>
-    <span class="marquee-item">Small business <span class="em">strategy</span><span class="dot"></span></span>
-    <span class="marquee-item">Mobile <span class="em">apps</span><span class="dot"></span></span>
-    <span class="marquee-item">Web <span class="em">platforms</span><span class="dot"></span></span>
+    <span class="marquee-item">Apps <span class="em">that ship</span><span class="dot"></span></span>
+    <span class="marquee-item">Websites <span class="em">that work</span><span class="dot"></span></span>
+    <span class="marquee-item">Email <span class="em">that lands</span><span class="dot"></span></span>
+    <span class="marquee-item">Support <span class="em">that answers</span><span class="dot"></span></span>
+    <span class="marquee-item">Built <span class="em">for small biz</span><span class="dot"></span></span>
   </div>
 </div>
 
-<!-- SERVICES -->
-<section class="services" id="services">
+<!-- WHAT WE DO -->
+<section class="what-we-do" id="help">
   <div class="container">
-    <div class="section-header">
-      <div>
-        <div class="section-tag">What we do</div>
-        <h2 class="section-title">Technology, made <em>easy</em> for everyone.</h2>
-      </div>
-      <p class="section-desc">
-        From a five-person shop to a 500-person enterprise — we deliver the same engineering quality, just sized to your stage.
-      </p>
+    <div class="section-header-simple">
+      <div class="section-tag">What we help with</div>
+      <h2 class="section-title">Four things, done <em>really well</em>. <span class="section-handwritten">that's it!</span></h2>
     </div>
 
-    <div class="services-grid">
+    <div class="help-grid">
 
-      <!-- Featured: Custom App Development -->
-      <div class="service-card large featured">
-        <div class="service-num">01 / Featured</div>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      <div class="help-card c1">
+        <div>
+          <div class="help-illus">
+            <svg viewBox="0 0 32 32" fill="none">
+              <rect x="6" y="3" width="20" height="26" rx="3" stroke="#F26F1F" stroke-width="2"/>
+              <line x1="14" y1="26" x2="18" y2="26" stroke="#F26F1F" stroke-width="2" stroke-linecap="round"/>
+              <rect x="9" y="7" width="14" height="14" fill="#F26F1F" opacity="0.2"/>
+            </svg>
+          </div>
         </div>
-        <h3 class="service-title">Custom Application Development</h3>
-        <p class="service-desc">
-          We design, engineer, and ship native apps, web apps, and SaaS platforms tailored to the exact problem your business needs to solve. From slot-machine entertainment apps to IT ticketing dashboards — we've built it all.
-        </p>
-        <div class="service-tags">
-          <span class="service-tag">iOS</span>
-          <span class="service-tag">Android</span>
-          <span class="service-tag">Web</span>
-          <span class="service-tag">SaaS</span>
-          <span class="service-tag">API</span>
-        </div>
-        <svg class="service-bg-art" width="200" height="200" viewBox="0 0 200 200" fill="none">
-          <circle cx="100" cy="100" r="80" stroke="white" stroke-width="1"/>
-          <circle cx="100" cy="100" r="60" stroke="white" stroke-width="1"/>
-          <circle cx="100" cy="100" r="40" stroke="white" stroke-width="1"/>
-        </svg>
-      </div>
-
-      <!-- Business Solutions -->
-      <div class="service-card small">
-        <div class="service-num">02</div>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#1457C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
-        </div>
-        <h3 class="service-title">Business Solutions &amp; Strategy</h3>
-        <p class="service-desc">
-          Whether you're starting from scratch or scaling up — we map the technology to your roadmap. Workflow automation, internal tools, dashboards, and the strategy to use them.
-        </p>
-        <div class="service-tags">
-          <span class="service-tag">Workflow</span>
-          <span class="service-tag">Automation</span>
-          <span class="service-tag">Consulting</span>
+        <div>
+          <div class="help-name">Custom apps</div>
+          <div class="help-tag">iOS, Android, web. Built around how you actually work.</div>
         </div>
       </div>
 
-      <!-- Web -->
-      <div class="service-card third">
-        <div class="service-num">03</div>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#1457C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <div class="help-card c2">
+        <div>
+          <div class="help-illus">
+            <svg viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="11" stroke="#1457C8" stroke-width="2"/>
+              <line x1="5" y1="16" x2="27" y2="16" stroke="#1457C8" stroke-width="2"/>
+              <path d="M16 5a17 17 0 014 11 17 17 0 01-4 11 17 17 0 01-4-11 17 17 0 014-11z" stroke="#1457C8" stroke-width="2"/>
+            </svg>
+          </div>
         </div>
-        <h3 class="service-title">Website Design &amp; Build</h3>
-        <p class="service-desc">
-          Marketing sites, e-commerce, brand microsites, and web platforms — designed to convert and engineered to last.
-        </p>
+        <div>
+          <div class="help-name">Websites</div>
+          <div class="help-tag">Marketing sites &amp; storefronts that load fast and convert.</div>
+        </div>
       </div>
 
-      <!-- Enterprise -->
-      <div class="service-card third">
-        <div class="service-num">04</div>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#1457C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <div class="help-card c3">
+        <div>
+          <div class="help-illus">
+            <svg viewBox="0 0 32 32" fill="none">
+              <rect x="4" y="7" width="24" height="18" rx="2" stroke="#C9923E" stroke-width="2"/>
+              <path d="M4 9l12 9 12-9" stroke="#C9923E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
         </div>
-        <h3 class="service-title">Enterprise Systems</h3>
-        <p class="service-desc">
-          Internal tools, IT helpdesk platforms, knowledge bases, and operations dashboards — built for teams that need things to actually work at scale.
-        </p>
+        <div>
+          <div class="help-name">Email setup</div>
+          <div class="help-tag">Custom domain inboxes, forwarding, the whole DNS dance.</div>
+        </div>
       </div>
 
-      <!-- Entertainment -->
-      <div class="service-card third">
-        <div class="service-num">05</div>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#1457C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+      <div class="help-card c4">
+        <div>
+          <div class="help-illus">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M16 4v4M16 24v4M4 16h4M24 16h4M7 7l3 3M22 22l3 3M7 25l3-3M22 10l3-3" stroke="#22A055" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="16" cy="16" r="5" fill="#22A055" opacity="0.2" stroke="#22A055" stroke-width="2"/>
+            </svg>
+          </div>
         </div>
-        <h3 class="service-title">Entertainment &amp; Gaming</h3>
-        <p class="service-desc">
-          Interactive entertainment experiences, social games, and engagement platforms — we've shipped mechanics from slot reels to leaderboards.
-        </p>
+        <div>
+          <div class="help-name">Ongoing support</div>
+          <div class="help-tag">We don't ship and ghost. We're here when things break.</div>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- WHO WE SERVE -->
-<section class="audience">
-  <div class="container">
-    <div class="section-header">
-      <div>
-        <div class="section-tag">Who we serve</div>
-        <h2 class="section-title">Five industries.<br>One <em>standard</em>.</h2>
+<!-- STUDIO STRIP -->
+<section class="studio-strip" id="about">
+  <div class="studio-inner">
+    <div class="studio-left">
+      <div class="quote-mark">"</div>
+      <div class="quote">
+        We're small <em>on purpose</em>. It's how we stay fast, friendly, and actually accountable to the businesses we work with.
       </div>
-      <p class="section-desc">
-        We've intentionally diversified — because the best ideas in one sector almost always solve a problem in another.
-      </p>
+      <div class="sig">— The DelCom Studio</div>
+      <div class="sig-line">Founded by builders, for builders.</div>
     </div>
-
-    <div class="audience-grid">
-      <div class="audience-card">
-        <div class="audience-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg>
-        </div>
-        <h3 class="audience-title">Enterprise</h3>
-        <p class="audience-desc">Internal tools, ticketing systems, and operational platforms for established companies.</p>
+    <div class="studio-right">
+      <div class="studio-stat">
+        <div class="num">20<em>+</em></div>
+        <div class="lbl">Apps shipped</div>
       </div>
-
-      <div class="audience-card">
-        <div class="audience-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6m11-11h-6m-10 0H1m17.07-7.07l-4.24 4.24m-5.66 5.66l-4.24 4.24m12.73 0l-4.24-4.24m-5.66-5.66L4.93 4.93"/></svg>
-        </div>
-        <h3 class="audience-title">Small Business</h3>
-        <p class="audience-desc">Big-tech engineering scaled to startup budgets, with the strategy to grow into it.</p>
+      <div class="studio-stat">
+        <div class="num">24<em>h</em></div>
+        <div class="lbl">Reply time, on average</div>
       </div>
-
-      <div class="audience-card">
-        <div class="audience-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        </div>
-        <h3 class="audience-title">Education</h3>
-        <p class="audience-desc">Learning platforms, training portals, and procedure tools that make complex things teachable.</p>
+      <div class="studio-stat">
+        <div class="num">5<em>x</em></div>
+        <div class="lbl">Industries we've worked in</div>
       </div>
-
-      <div class="audience-card">
-        <div class="audience-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        </div>
-        <h3 class="audience-title">Entertainment</h3>
-        <p class="audience-desc">Games, interactive experiences, and engagement mechanics that keep audiences coming back.</p>
-      </div>
-
-      <div class="audience-card">
-        <div class="audience-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        </div>
-        <h3 class="audience-title">Startups</h3>
-        <p class="audience-desc">From validated idea to launched MVP — and the strategy to get to product-market fit.</p>
+      <div class="studio-stat">
+        <div class="num">100<em>%</em></div>
+        <div class="lbl">Built from scratch</div>
       </div>
     </div>
   </div>
@@ -1285,14 +1356,14 @@ footer {
 <!-- WORK -->
 <section class="work" id="work">
   <div class="container">
-    <div class="section-header">
+    <div class="work-header">
       <div>
         <div class="section-tag">Selected work</div>
-        <h2 class="section-title">Things we've <em>shipped</em>.</h2>
+        <h2 class="section-title">A few things we've <em>shipped</em>.</h2>
       </div>
-      <p class="section-desc">
-        A small slice of what we've built — across entertainment, internal tools, and enterprise platforms.
-      </p>
+      <div class="small-note">
+        click any of these to take a peek <span class="arrow-down">↓</span>
+      </div>
     </div>
 
     <div class="work-grid">
@@ -1310,7 +1381,7 @@ footer {
         <div class="work-meta">
           <div class="work-type">Mobile Game</div>
           <h3 class="work-title">Billion Dollar Slots</h3>
-          <p class="work-desc">A themed slot-style entertainment app with tiered jackpot multipliers, inventory system, and progression mechanics.</p>
+          <p class="work-desc">A themed slot-style entertainment app with jackpot multipliers and progression mechanics.</p>
         </div>
       </a>
 
@@ -1328,7 +1399,7 @@ footer {
         <div class="work-meta">
           <div class="work-type">Web Application</div>
           <h3 class="work-title">Steps</h3>
-          <p class="work-desc">A procedure walkthrough and tracking platform — turning long-form documentation into checked-off, recorded workflows.</p>
+          <p class="work-desc">Turn long documentation into checked-off, recorded workflows your team can actually follow.</p>
         </div>
       </a>
 
@@ -1351,52 +1422,10 @@ footer {
         <div class="work-meta">
           <div class="work-type">Enterprise SaaS</div>
           <h3 class="work-title">ClearDay</h3>
-          <p class="work-desc">A full-featured IT helpdesk and ticketing platform with role-based access, knowledge base, and reporting.</p>
+          <p class="work-desc">A full IT helpdesk &amp; ticketing platform with roles, knowledge base, and reporting.</p>
         </div>
       </a>
 
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="process" id="process">
-  <div class="container">
-    <div class="section-header">
-      <div>
-        <div class="section-tag">How we work</div>
-        <h2 class="section-title">A process built<br>for <em>real</em> results.</h2>
-      </div>
-      <p class="section-desc">
-        No bloated retainers. No vague deliverables. Just a clear path from "I have an idea" to "It's live."
-      </p>
-    </div>
-
-    <div class="process-list">
-      <div class="process-row">
-        <div class="process-num">/ 01</div>
-        <div class="process-name">Discovery</div>
-        <div class="process-detail">We listen first. What's the problem? Who's it for? Where does it hurt today? Free consultation, no commitment.</div>
-        <div class="process-time">~ 1 week</div>
-      </div>
-      <div class="process-row">
-        <div class="process-num">/ 02</div>
-        <div class="process-name">Strategy &amp; Scope</div>
-        <div class="process-detail">A fixed-price proposal with timelines, milestones, and exactly what you're getting. No surprises down the road.</div>
-        <div class="process-time">~ 1–2 weeks</div>
-      </div>
-      <div class="process-row">
-        <div class="process-num">/ 03</div>
-        <div class="process-name">Design &amp; Build</div>
-        <div class="process-detail">Weekly check-ins. Working prototypes early. You see progress in real time — not at the end.</div>
-        <div class="process-time">~ 4–12 weeks</div>
-      </div>
-      <div class="process-row">
-        <div class="process-num">/ 04</div>
-        <div class="process-name">Launch &amp; Support</div>
-        <div class="process-detail">Deploy, train your team, and stick around. Ongoing maintenance and feature work as you grow.</div>
-        <div class="process-time">Ongoing</div>
-      </div>
     </div>
   </div>
 </section>
@@ -1406,11 +1435,11 @@ footer {
   <div class="cta-content">
     <div class="cta-eyebrow">
       <span class="dot"></span>
-      <span>Free 30-minute consultation</span>
+      <span>Free 30-minute call. No sales pitch.</span>
     </div>
-    <h2 class="cta-title">Ready to <em>build</em><br>something real?</h2>
+    <h2 class="cta-title">Got an <em>idea</em>?<br>Let's build it.</h2>
     <p class="cta-desc">
-      Tell us about your business, your idea, or the problem keeping you up at night. We'll tell you honestly whether we can help — and how.
+      Tell us what you're working on. We'll tell you honestly if we can help.
     </p>
     <div class="cta-buttons">
       <a href="mailto:hello@delcom.live?subject=New%20Project%20Inquiry&body=Hi%20DelCom%20team%2C%0A%0AI%27d%20like%20to%20talk%20about%3A%0A%0A" class="btn btn-primary">
@@ -1433,41 +1462,36 @@ footer {
         <p class="footer-tagline">Big tech energy. Small business heart. Software that just works.</p>
       </div>
       <div class="footer-col">
-        <h4>Services</h4>
-        <a href="#services">App Development</a>
-        <a href="#services">Web Design</a>
-        <a href="#services">Business Strategy</a>
-        <a href="#services">Enterprise Systems</a>
-        <a href="#services">Entertainment</a>
+        <h4>What we do</h4>
+        <a href="#help">Custom Apps</a>
+        <a href="#help">Websites</a>
+        <a href="#help">Email Setup</a>
+        <a href="#help">Support</a>
       </div>
       <div class="footer-col">
-        <h4>Company</h4>
+        <h4>Studio</h4>
         <a href="#work">Our Work</a>
-        <a href="#process">Process</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a href="#">Careers</a>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h4>Say hi</h4>
         <a href="mailto:hello@delcom.live">hello@delcom.live</a>
-        <a href="tel:">Schedule a call</a>
         <a href="#">LinkedIn</a>
         <a href="#">GitHub</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <div>© 2026 DelCom. All rights reserved.</div>
+      <div>© 2026 DelCom. Made with care.</div>
       <div class="legal">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
-        <a href="#">Cookies</a>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-  // Nav border on scroll
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) nav.classList.add('scrolled');
