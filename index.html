@@ -6,7 +6,7 @@
 <title>DelCom — A small studio building big things</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Caveat:wght@500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Caveat:wght@500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --blue: #1457C8;
@@ -197,7 +197,7 @@ nav.scrolled { border-bottom-color: var(--line); }
 }
 
 h1.hero-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Newsreader', serif;
   font-weight: 400;
   font-size: clamp(54px, 7vw, 96px);
   line-height: 0.92;
@@ -303,7 +303,7 @@ h1.hero-title .scribble-word svg {
   margin-bottom: 4px;
 }
 .card-tech .big-num {
-  font-family: 'Fraunces', serif;
+  font-family: 'Newsreader', serif;
   font-size: 48px;
   font-weight: 500;
   line-height: 1;
@@ -372,7 +372,7 @@ h1.hero-title .scribble-word svg {
   background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
 }
 .card-shop .shop-name {
-  font-family: 'Fraunces', serif;
+  font-family: 'Newsreader', serif;
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 4px;
@@ -512,7 +512,7 @@ h1.hero-title .scribble-word svg {
   align-items: center;
 }
 .marquee-item {
-  font-family: 'Fraunces', serif;
+  font-family: 'Newsreader', serif;
   font-size: 26px;
   font-weight: 300;
   letter-spacing: -0.02em;
@@ -550,7 +550,7 @@ h1.hero-title .scribble-word svg {
 }
 
 .section-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Newsreader', serif;
   font-size: clamp(38px, 5vw, 64px);
   font-weight: 400;
   letter-spacing: -0.03em;
@@ -617,7 +617,7 @@ h1.hero-title .scribble-word svg {
 .help-card .help-illus svg { width: 32px; height: 32px; }
 
 .help-card .help-name {
-  font-family: 'Fraunces', serif;
+  font-family: 'Newsreader', serif;
   font-size: 24px;
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -629,6 +629,135 @@ h1.hero-title .scribble-word svg {
   color: var(--ink-soft);
   line-height: 1.5;
 }
+
+/* ============ BUILD PILLARS — the branches of the studio ============ */
+.build {
+  padding: 120px 32px;
+  background: var(--paper-warm);
+  border-top: 1px solid var(--line);
+  position: relative;
+}
+.build-intro {
+  max-width: 720px;
+  margin-bottom: 56px;
+}
+.build-intro .build-lead {
+  font-size: 17px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin-top: 18px;
+}
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.pillar {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 36px 32px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+.pillar:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 56px -22px rgba(11, 18, 32, 0.18);
+  border-color: transparent;
+}
+.pillar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+.pillar.p-biz::before { background: var(--blue); }
+.pillar.p-edu::before { background: var(--orange); }
+.pillar.p-fun::before { background: var(--yellow); }
+
+.pillar-icon {
+  width: 60px; height: 60px;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 22px;
+}
+.pillar.p-biz .pillar-icon { background: var(--blue-soft); }
+.pillar.p-edu .pillar-icon { background: var(--orange-soft); }
+.pillar.p-fun .pillar-icon { background: #FFF7D6; }
+.pillar-icon svg { width: 30px; height: 30px; }
+
+.pillar-kicker {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.pillar.p-biz .pillar-kicker { color: var(--blue); }
+.pillar.p-edu .pillar-kicker { color: var(--orange); }
+.pillar.p-fun .pillar-kicker { color: #C9923E; }
+
+.pillar-name {
+  font-family: 'Newsreader', serif;
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+.pillar-desc {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.pillar-feature {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+}
+.pillar-feature:hover {
+  background: white;
+  border-color: var(--ink-soft);
+  transform: translateX(2px);
+}
+.pillar-feature .pf-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.pillar.p-biz .pf-dot { background: var(--blue); }
+.pillar.p-edu .pf-dot { background: var(--orange); }
+.pillar.p-fun .pf-dot { background: var(--yellow); }
+.pillar-feature .pf-text { flex: 1; }
+.pillar-feature .pf-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  opacity: 0.7;
+  margin-bottom: 2px;
+}
+.pillar-feature .pf-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+.pillar-feature .pf-arrow {
+  color: var(--ink-soft);
+  font-size: 16px;
+  transition: transform 0.25s ease;
+}
+.pillar-feature:hover .pf-arrow { transform: translateX(3px); }
 
 /* ============ STUDIO STRIP — humanizing the firm ============ */
 .studio-strip {
@@ -646,14 +775,14 @@ h1.hero-title .scribble-word svg {
   align-items: center;
 }
 .studio-left .quote-mark {
-  font-family: 'Fraunces', serif;
+  font-family: 'Newsreader', serif;
   font-size: 80px;
   line-height: 1;
   color: var(--orange);
   margin-bottom: -20px;
 }
 .studio-left .quote {
-  font-family: 'Fraunces', serif;
+  font-family: 'Newsreader', serif;
   font-size: clamp(28px, 3vw, 38px);
   font-weight: 400;
   font-style: italic;
@@ -688,7 +817,7 @@ h1.hero-title .scribble-word svg {
   border: 1px solid var(--line);
 }
 .studio-stat .num {
-  font-family: 'Fraunces', serif;
+  font-family: 'Newsreader', serif;
   font-size: 44px;
   font-weight: 500;
   line-height: 1;
@@ -841,7 +970,7 @@ h1.hero-title .scribble-word svg {
   width: 70%;
 }
 .preview-steps .panel-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Newsreader', serif;
   font-size: 22px;
   color: #6B4FBB;
   font-weight: 500;
@@ -927,7 +1056,7 @@ h1.hero-title .scribble-word svg {
 .preview-clearday .stat-num {
   font-size: 22px;
   font-weight: 700;
-  font-family: 'Fraunces', serif;
+  font-family: 'Newsreader', serif;
 }
 .preview-clearday .stat:nth-child(1) .stat-num { color: var(--blue); }
 .preview-clearday .stat:nth-child(2) .stat-num { color: var(--orange); }
@@ -957,7 +1086,7 @@ h1.hero-title .scribble-word svg {
   margin-bottom: 10px;
 }
 .work-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Newsreader', serif;
   font-size: 24px;
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -1019,7 +1148,7 @@ h1.hero-title .scribble-word svg {
   box-shadow: 0 0 0 4px rgba(242, 111, 31, 0.3);
 }
 .cta-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Newsreader', serif;
   font-size: clamp(44px, 6vw, 80px);
   font-weight: 300;
   letter-spacing: -0.03em;
@@ -1057,7 +1186,7 @@ footer {
 .footer-brand-block .logo { font-size: 32px; margin-bottom: 20px; }
 .footer-brand-block .logo .del { color: #6BA3FF; }
 .footer-tagline {
-  font-family: 'Fraunces', serif;
+  font-family: 'Newsreader', serif;
   font-size: 22px;
   font-style: italic;
   font-weight: 300;
@@ -1101,6 +1230,7 @@ footer {
   .hero-content { grid-template-columns: 1fr; gap: 80px; }
   .hero-visual { height: 480px; max-width: 500px; margin: 0 auto; }
   .help-grid { grid-template-columns: 1fr 1fr; }
+  .pillar-grid { grid-template-columns: 1fr; }
   .work-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .studio-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -1117,7 +1247,7 @@ footer {
   .footer-bottom { flex-direction: column; align-items: flex-start; }
   .footer-bottom .legal a { margin-left: 0; margin-right: 16px; }
   .container { padding: 0 20px; }
-  .what-we-do, .work, .cta-section, .studio-strip { padding: 80px 20px; }
+  .what-we-do, .work, .cta-section, .studio-strip, .build { padding: 80px 20px; }
   .work-header { flex-direction: column; align-items: flex-start; }
 }
 </style>
@@ -1131,7 +1261,7 @@ footer {
       <span class="del">Del</span><span class="com">Com</span><span class="dot"></span>
     </a>
     <div class="nav-links">
-      <a href="#help">What we do</a>
+      <a href="#build">What we build</a>
       <a href="#work">Work</a>
       <a href="#about">Studio</a>
       <a href="#contact" class="nav-cta">Say hello</a>
@@ -1353,6 +1483,99 @@ footer {
   </div>
 </section>
 
+<!-- WHAT WE BUILD — PILLARS -->
+<section class="build" id="build">
+  <div class="container">
+    <div class="build-intro">
+      <div class="section-tag">What we build</div>
+      <h2 class="section-title">One studio, a few <em>directions</em>.</h2>
+      <p class="build-lead">
+        It all comes down to the same thing — software that just works. Whether it's running a business, learning something hard, or having a little fun, we build the tool around the way real people actually use it.
+      </p>
+    </div>
+
+    <div class="pillar-grid">
+
+      <!-- BUSINESS MANAGEMENT (incl. tracking) -->
+      <div class="pillar p-biz">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 32 32" fill="none">
+            <rect x="4" y="6" width="24" height="20" rx="2" stroke="#1457C8" stroke-width="2"/>
+            <line x1="4" y1="12" x2="28" y2="12" stroke="#1457C8" stroke-width="2"/>
+            <line x1="10" y1="18" x2="14" y2="18" stroke="#1457C8" stroke-width="2" stroke-linecap="round"/>
+            <line x1="10" y1="22" x2="20" y2="22" stroke="#1457C8" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="22" cy="19" r="2.5" fill="#1457C8" opacity="0.25" stroke="#1457C8" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="pillar-kicker">For business</div>
+        <div class="pillar-name">Business management &amp; tracking</div>
+        <p class="pillar-desc">
+          The day-to-day software that keeps an operation moving — pipelines, accounts, inventory, scheduling, ticketing, and the checklists that hold it all together. We build the system around your workflow instead of forcing your workflow into someone else's box, so nothing falls through the cracks.
+        </p>
+        <a class="pillar-feature" href="https://legaleagle-app.com" target="_blank" rel="noopener noreferrer">
+          <span class="pf-dot"></span>
+          <span class="pf-text">
+            <span class="pf-label">In the wild</span>
+            <span class="pf-name">Legal Eagle</span>
+          </span>
+          <span class="pf-arrow">→</span>
+        </a>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="pillar p-edu">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 5L29 11L16 17L3 11L16 5Z" stroke="#F26F1F" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M8 13.5V20c0 1.5 3.6 3.5 8 3.5s8-2 8-3.5v-6.5" stroke="#F26F1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="29" y1="11" x2="29" y2="17" stroke="#F26F1F" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="pillar-kicker">For learning</div>
+        <div class="pillar-name">Software for education</div>
+        <p class="pillar-desc">
+          Studying shouldn't feel like a chore. We turn dense material into gamified study tools — real questions, XP and ranks, daily quests, honest progress tracking — so prep actually sticks. A growing portfolio aimed at the exams and skills people sweat over most.
+        </p>
+        <a class="pillar-feature" href="https://lawyerup-app.com" target="_blank" rel="noopener noreferrer">
+          <span class="pf-dot"></span>
+          <span class="pf-text">
+            <span class="pf-label">In the wild</span>
+            <span class="pf-name">Lawyer Up</span>
+          </span>
+          <span class="pf-arrow">→</span>
+        </a>
+      </div>
+
+      <!-- FUN / GAMES -->
+      <div class="pillar p-fun">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 32 32" fill="none">
+            <rect x="3" y="9" width="26" height="15" rx="6" stroke="#C9923E" stroke-width="2"/>
+            <line x1="10" y1="14" x2="10" y2="19" stroke="#C9923E" stroke-width="2" stroke-linecap="round"/>
+            <line x1="7.5" y1="16.5" x2="12.5" y2="16.5" stroke="#C9923E" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="21" cy="15" r="1.6" fill="#C9923E"/>
+            <circle cx="24.5" cy="18.5" r="1.6" fill="#C9923E"/>
+          </svg>
+        </div>
+        <div class="pillar-kicker">For fun</div>
+        <div class="pillar-name">Software for fun</div>
+        <p class="pillar-desc">
+          Games we build because we love building them. A whole arcade of original titles — slots, sports, card battles, timing challenges — with real mechanics, progression, and polish. It's where we experiment, move fast, and remember that software is allowed to be a good time.
+        </p>
+        <a class="pillar-feature" href="https://billiondollararcade.com" target="_blank" rel="noopener noreferrer">
+          <span class="pf-dot"></span>
+          <span class="pf-text">
+            <span class="pf-label">Play now</span>
+            <span class="pf-name">Billion Dollar Arcade</span>
+          </span>
+          <span class="pf-arrow">→</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- WORK -->
 <section class="work" id="work">
   <div class="container">
@@ -1368,7 +1591,7 @@ footer {
 
     <div class="work-grid">
 
-      <a class="work-card" href="https://billiondollarslots.com" target="_blank" rel="noopener noreferrer">
+      <a class="work-card" href="https://billiondollararcade.com" target="_blank" rel="noopener noreferrer">
         <div class="work-visual preview-casino">
           <div class="lamp"></div>
           <div class="slots">
@@ -1376,12 +1599,12 @@ footer {
             <div class="slot">7</div>
             <div class="slot">7</div>
           </div>
-          <div class="badge">// Entertainment</div>
+          <div class="badge">// Arcade</div>
         </div>
         <div class="work-meta">
-          <div class="work-type">Mobile Game</div>
-          <h3 class="work-title">Billion Dollar Slots</h3>
-          <p class="work-desc">A themed slot-style entertainment app with jackpot multipliers and progression mechanics.</p>
+          <div class="work-type">Game Portfolio</div>
+          <h3 class="work-title">Billion Dollar Arcade</h3>
+          <p class="work-desc">The hub for every game we've shipped — slots, sportsbook, card battles, and timing challenges, all in one arcade.</p>
         </div>
       </a>
 
@@ -1470,6 +1693,7 @@ footer {
       </div>
       <div class="footer-col">
         <h4>Studio</h4>
+        <a href="#build">What We Build</a>
         <a href="#work">Our Work</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
